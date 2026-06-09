@@ -1,5 +1,3 @@
-
-
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Instrument_Serif, Sora } from "next/font/google";
 import { PageTransitionProvider } from "@/components/layout/PageTransition";
@@ -33,7 +31,6 @@ export const metadata: Metadata = {
   title: "GoDigital | Digital Marketing Agency",
   description:
     "We build brands that people remember. Strategy, creativity, and growth for ambitious businesses.",
-  // Explicitly defining the icons for Android/Chrome/Apple
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -44,7 +41,6 @@ export const metadata: Metadata = {
       { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
-  // Linking the web app manifest
   manifest: "/manifest.json",
 };
 
@@ -58,7 +54,8 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} ${sora.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-background text-foreground">
+      
+      <body className="min-h-full bg-background text-foreground overflow-x-hidden selection:bg-[#6495ED] selection:text-white">
         <SmoothScroll>
           <PageTransitionProvider>{children}</PageTransitionProvider>
         </SmoothScroll>

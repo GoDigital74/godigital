@@ -13,10 +13,10 @@ export default function HomePage() {
     <>
       <Header />
       <main>
-        <Hero />
-        <LogoWall />
-        <FeaturedWork />
-        <Industries />
+         <Hero />
+        <LogoWall /> 
+        <FeaturedWork /> 
+         <Industries /> 
         <Insights />
         <WhyUs />
         <FinalCTA />
