@@ -10,5 +10,5 @@ export default function AboutPage() {
         Our story, team, and culture — coming soon.
       </p>
     </PageShell>
-  );
+    );
 }

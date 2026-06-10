@@ -26,7 +26,8 @@ export function Header() {
       <nav
         className={`mx-auto flex max-w-7xl items-center justify-between rounded-2xl px-5 py-3 transition-all duration-500 border ${
           scrolled
-            ? "bg-[#0A0A0A]/80 backdrop-blur-[10px] border-white/10 shadow-lg shadow-black/20"
+            // CHANGED: Lowered background opacity to /40 and used backdrop-blur-md for a true glass effect
+            ? "bg-[#0A0A0A]/40 backdrop-blur-md border-white/10 shadow-lg shadow-black/40"
             : "bg-transparent border-transparent"
         }`}
       >
