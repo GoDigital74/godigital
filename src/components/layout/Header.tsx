@@ -31,7 +31,8 @@ export function Header() {
         }`}
       >
         <TransitionLink href="/" className="group flex items-center gap-2">
-          <span className="text-lg font-semibold tracking-tight text-white">
+          {/* Changed text-lg to text-2xl here to increase logo size */}
+          <span className="text-2xl font-semibold tracking-tight text-white">
             Go<span className="text-[#6495ED]"> Digital</span>
           </span>
         </TransitionLink>
