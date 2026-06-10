@@ -1,76 +1,94 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import { motion } from "framer-motion";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion, Variants } from "framer-motion";
 import { whyUs } from "@/lib/data";
 
-const icons = ["⚡", "🌐", "🚀", "📊"];
+// Consistent Framer Motion reveal orchestration
+const containerVariants: Variants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 30,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
 
 export function WhyUs() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    const ctx = gsap.context(() => {
-      gsap.from(".why-card", {
-        opacity: 0,
-        x: -40,
-        stagger: 0.1,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 75%",
-        },
-      });
-    }, sectionRef);
-    return () => ctx.revert();
-  }, []);
-
   return (
     <section
-      ref={sectionRef}
-      className="section-padding relative overflow-hidden bg-slate-50"
+      // Applied the exact dark gradient background
+      className="section-padding relative overflow-hidden bg-gradient-to-b from-[#0A0A0A] to-[#111827]"
     >
-      <div className="pointer-events-none absolute right-0 top-0 h-full w-1/2 bg-gradient-to-l from-blue-100/40 to-transparent" />
+      {/* Subtle blue accent glow on the right side */}
+      <div className="pointer-events-none absolute right-0 top-0 h-full w-1/2 bg-gradient-to-l from-[#6495ED]/5 to-transparent" />
 
       <div className="relative mx-auto max-w-7xl">
+        {/* Section Heading Module matching other sections */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7 }}
           className="mb-16 max-w-2xl"
         >
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#6495ED]">
             Why Brands Work With Us
           </p>
-          <h2 className="mt-4 text-4xl font-bold tracking-tight text-brand-navy md:text-5xl">
+          <h2 className="mt-4 text-4xl font-bold tracking-tight text-white md:text-5xl">
             One partner. Every capability.
           </h2>
         </motion.div>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        {/* Instanced Framer Motion Grid Container */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          className="grid gap-6 md:grid-cols-2"
+        >
           {whyUs.map((item, i) => (
-            <div
+            <motion.div
+              variants={cardVariants}
               key={item.title}
-              className="why-card group flex gap-5 rounded-2xl border border-slate-100 bg-white p-8 shadow-sm transition-all hover:border-blue-200 hover:shadow-lg hover:shadow-blue-500/5"
+              // Dark cards matching the Insights/Work sections with smooth glass hover states
+              className="group flex gap-6 rounded-3xl border border-white/5 bg-[#111827]/60 p-8 backdrop-blur-sm transition-all duration-300 hover:border-[#6495ED]/50 hover:bg-[#111827] hover:shadow-lg hover:shadow-[#6495ED]/10"
             >
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-xl transition-colors group-hover:bg-brand group-hover:text-white">
-                {icons[i]}
+              {/* Stats / Numbers: Blue */}
+              <div className="text-4xl font-bold tracking-tighter text-[#6495ED] transition-transform duration-300 group-hover:-translate-y-1 md:text-5xl">
+                0{i + 1}
               </div>
+              
               <div>
-                <h3 className="text-lg font-bold text-brand-navy">
+                {/* Text: White title, Slate-400 description */}
+                <h3 className="text-xl font-bold text-white transition-colors duration-300 group-hover:text-[#6495ED]">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                <p className="mt-3 text-sm leading-relaxed text-gray-400">
                   {item.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
