@@ -46,7 +46,8 @@ export function PageTransitionProvider({ children }: { children: ReactNode }) {
 
       isAnimating.current = true;
       setOverlayVisible(true);
-      document.body.style.overflow = "hidden";
+      
+      // REMOVED: document.body.style.overflow = "hidden"; (This caused the layout shift)
 
       const blocks = getBlocks();
       
@@ -57,7 +58,7 @@ export function PageTransitionProvider({ children }: { children: ReactNode }) {
         onComplete: () => {
           isAnimating.current = false;
           setOverlayVisible(false);
-          document.body.style.overflow = "";
+          // REMOVED: document.body.style.overflow = "";
           gsap.set(blocks, { scaleY: 0 }); 
         },
       });
@@ -73,7 +74,7 @@ export function PageTransitionProvider({ children }: { children: ReactNode }) {
         duration: 0.35, 
         stagger: 0.03, 
         ease: "power3.inOut",
-        delay: 0.2, // 200ms delay to let the new page render cleanly
+        delay: 0.2, 
       });
     },
     [pathname, router]
@@ -84,7 +85,7 @@ export function PageTransitionProvider({ children }: { children: ReactNode }) {
     const safety = window.setTimeout(() => {
       isAnimating.current = false;
       setOverlayVisible(false);
-      document.body.style.overflow = "";
+      // REMOVED: document.body.style.overflow = "";
     }, 3000);
     return () => window.clearTimeout(safety);
   }, [overlayVisible]);
@@ -104,7 +105,6 @@ export function PageTransitionProvider({ children }: { children: ReactNode }) {
               ref={(el) => {
                 if (el) blocksRef.current[i] = el;
               }}
-              // 👇 THE COLOR IS APPLIED HERE 👇
               className="pt-block h-full flex-1 bg-[#0A0A0A]"
               style={{ transform: "scaleY(0)" }}
             />
@@ -156,4 +156,3 @@ export function TransitionLink({
     </Link>
   );
 }
-

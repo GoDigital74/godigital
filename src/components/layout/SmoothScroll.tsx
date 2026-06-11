@@ -1,13 +1,16 @@
 "use client";
 
 import { useEffect, useRef, type ReactNode } from "react";
+import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export function SmoothScroll({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
   const lenisRef = useRef<Lenis | null>(null);
 
+  // 1. Initialize Lenis (Runs once on mount)
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -77,6 +80,16 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
       lenisRef.current = null;
     };
   }, []);
+
+  // 2. Global Scroll-to-Top Listener
+  // Every time the pathname (URL) changes, force Lenis to the top instantly
+  useEffect(() => {
+    if (lenisRef.current) {
+      lenisRef.current.scrollTo(0, { immediate: true });
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname]);
 
   return <>{children}</>;
 }
