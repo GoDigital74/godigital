@@ -3,35 +3,41 @@
 import { useEffect, useRef, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import Lenis from "lenis";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export function SmoothScroll({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const lenisRef = useRef<Lenis | null>(null);
 
-  // 1. Initialize Lenis (Pure Native Implementation)
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
     const lenis = new Lenis({
-      duration: 1.2, // 1.2 is the sweet spot: buttery smooth but highly responsive
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      touchMultiplier: 1.5,
-      wheelMultiplier: 1, 
+      touchMultiplier: 2,
+      wheelMultiplier: 1,
       infinite: false,
       autoResize: true,
     });
 
     lenisRef.current = lenis;
 
-    // Use native requestAnimationFrame instead of GSAP.
-    // This stops the lag by syncing perfectly with Framer Motion.
-    let rafId: number;
-    function raf(time: number) {
-      lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
-    }
-    rafId = requestAnimationFrame(raf);
+    // CRITICAL: Sync Lenis with GSAP ScrollTrigger
+    // This is what fixes the scroll lag — Lenis updates ScrollTrigger on every scroll event
+    lenis.on("scroll", ScrollTrigger.update);
 
-    // Handle anchor links smoothly
+    // Use GSAP ticker for frame-perfect sync with all GSAP animations
+    // This prevents the desync between Lenis smooth scroll and GSAP scrub animations
+    const onTick = (time: number) => {
+      lenis.raf(time * 1000);
+    };
+    gsap.ticker.add(onTick);
+    gsap.ticker.lagSmoothing(0);
+
+    // Handle anchor links
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const anchor = target.closest("a[href^='#']");
@@ -46,19 +52,23 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
         }
       }
     };
-
     document.addEventListener("click", handleAnchorClick);
+
+    // Refresh ScrollTrigger after layout settles
+    const refreshTimeout = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 300);
 
     return () => {
       document.removeEventListener("click", handleAnchorClick);
-      cancelAnimationFrame(rafId);
+      clearTimeout(refreshTimeout);
+      gsap.ticker.remove(onTick);
       lenis.destroy();
       lenisRef.current = null;
     };
   }, []);
 
-  // 2. Global Scroll-to-Top Fix for Page Transitions
-  // Every time the URL changes, instantly snap the scroll to the top
+  // Scroll to top on route change
   useEffect(() => {
     if (lenisRef.current) {
       lenisRef.current.scrollTo(0, { immediate: true });
