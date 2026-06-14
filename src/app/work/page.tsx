@@ -94,13 +94,7 @@ export default function WorkPage() {
   const [sortOrder, setSortOrder] = useState<"newest" | "oldest">("newest");
   const [sortDropdownOpen, setSortDropdownOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-
-  // Scroll to top on mount
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
-  }, []);
-
-  // Reset to page 1 whenever filters or sorting changes
+  
   useEffect(() => {
     setCurrentPage(1);
   }, [activeFilter, sortOrder]);
