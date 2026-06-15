@@ -70,7 +70,6 @@ export function AllLogos() {
               ) : (
                 // Clean fallback placeholder
                 <div className="flex h-16 w-full items-center justify-center rounded-xl border border-gray-200 bg-gray-50 px-2 text-center text-xs font-semibold text-gray-400 transition-colors duration-300 group-hover:border-[#6495ED]/30 group-hover:text-[#6495ED]">
-                  [ Logo {partner.id} ]
                 </div>
               )}
             </motion.div>
