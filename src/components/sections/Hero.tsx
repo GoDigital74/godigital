@@ -1,4 +1,3 @@
-
 "use client";
 
 import { TransitionLink } from "@/components/layout/PageTransition";
@@ -6,23 +5,23 @@ import { TransitionLink } from "@/components/layout/PageTransition";
 export function Hero() {
   return (
     <section 
-      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#0A0A0A] font-sora"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white font-sora"
     >
       {/* Centered Content Container */}
       <div className="relative z-10 flex w-full max-w-5xl flex-col items-center justify-center px-6 text-center">
         
-        {/* Headline: White text with Blue highlight */}
+        {/* Headline: Black text with Blue highlight */}
         <h1
-          className="animate-fade-up mb-4 text-[clamp(2.5rem,5.5vw,5.5rem)] font-bold leading-[1.1] tracking-[-0.02em] text-white opacity-0 md:mb-6"
+          className="animate-fade-up mb-4 text-[clamp(2.5rem,5.5vw,5.5rem)] font-bold leading-[1.1] tracking-[-0.02em] text-[#0A0A0A] opacity-0 md:mb-6"
           style={{ animationDelay: "0.2s" }}
         >
           We Build <span className="text-[#6495ED]">Brands</span>
           <br className="hidden md:block" /> That People Remember.
         </h1>
 
-        {/* Subheading: Grey text */}
+        {/* Subheading: Dark grey text for contrast against white background */}
         <p
-          className="animate-fade-up mb-10 text-[clamp(1.25rem,2.5vw,1.75rem)] font-light text-gray-400 opacity-0 md:mb-12"
+          className="animate-fade-up mb-10 text-[clamp(1.25rem,2.5vw,1.75rem)] font-light text-gray-600 opacity-0 md:mb-12"
           style={{ animationDelay: "0.4s" }}
         >
           Strategy. Creativity. Growth.

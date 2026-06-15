@@ -67,8 +67,8 @@ export function Header() {
         <nav
           className={`relative mx-auto flex max-w-7xl items-center justify-between rounded-2xl px-5 py-3 transition-all duration-500 border ${
             scrolled || mobileOpen
-              ? "bg-[#0A0A0A]/80 backdrop-blur-xl border-white/10 shadow-lg shadow-black/40"
-              : "bg-transparent border-transparent"
+              ? "bg-[#0A0A0A]/90 backdrop-blur-xl border-white/10 shadow-lg shadow-black/40"
+              : "bg-[#0A0A0A]/50 backdrop-blur-md border-white/10 shadow-md shadow-black/10" // <-- Glass effect applied here
           }`}
         >
           <TransitionLink
@@ -93,7 +93,6 @@ export function Header() {
                 <TransitionLink
                   href={link.href}
                   onClick={link.href === "/" ? handleHomeClick : undefined}
-                  // REDUCED HEIGHT HERE: Changed py-6 to py-2
                   className="flex items-center gap-1.5 px-3.5 py-2 text-sm font-medium text-white transition-colors hover:text-[#6495ED]"
                 >
                   {link.label}
@@ -113,12 +112,11 @@ export function Header() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 5, scale: 0.98 }}
                         transition={{ duration: 0.2, ease: "easeOut" }}
-                        // ADDED HOVER BRIDGE: Changed pt-2 to pt-6 so mouse doesn't fall off when moving down
                         className="absolute left-0 right-0 top-full pt-6"
                       >
-                        <div className="flex w-full overflow-hidden rounded-3xl border border-white/10 bg-[#111827] shadow-2xl shadow-black/60">
+                        <div className="flex w-full overflow-hidden rounded-3xl border border-white/10 bg-[#111827]/95 backdrop-blur-xl shadow-2xl shadow-black/60">
                           {/* Left Column - Navigation Links */}
-                          <div className="flex w-1/3 flex-col justify-center gap-8 border-r border-white/5 bg-[#0A0A0A] p-12">
+                          <div className="flex w-1/3 flex-col justify-center gap-8 border-r border-white/5 bg-[#0A0A0A]/80 p-12">
                             <TransitionLink
                               href="/solutions#growth"
                               className="group flex items-center gap-3 text-2xl font-bold text-white transition-colors hover:text-[#6495ED]"

@@ -7,6 +7,8 @@ import { Industries } from "@/components/sections/Industries";
 import { Insights } from "@/components/sections/Insights";
 import { WhyUs } from "@/components/sections/WhyUs";
 import { FinalCTA } from "@/components/sections/FinalCTA";
+import { GlobalPresence } from "@/components/sections/GlobalPresence";
+import { AllLogos } from "@/components/sections/AllLogos";
 
 export default function HomePage() {
   return (
@@ -15,10 +17,12 @@ export default function HomePage() {
       <div className="relative z-10 bg-[#f8fafc]">
         <Header />
         <main>
-           <Hero />
-          <LogoWall /> 
+          <Hero />
           <FeaturedWork /> 
-           <Industries /> 
+          <GlobalPresence />
+          <LogoWall /> 
+          <Industries /> 
+          <AllLogos />
           <Insights />
           <WhyUs />
           <FinalCTA />
