@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, Variants } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -122,41 +123,26 @@ export default function AboutPage() {
         </section>
 
         {/* ========================================= */}
-        {/* 4. FOUNDER SECTION (WHITE) */}
+        {/* 4. FOUNDER SECTION (FULL WIDTH IMAGE) */}
         {/* ========================================= */}
-        <section className="bg-white px-6 py-24 md:py-32">
-          <div className="mx-auto max-w-7xl">
+        <section className="bg-white py-24 md:py-14">
+          <div className="mx-auto w-full px-4 md:px-2">
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
-              variants={staggerContainer}
-              className="flex flex-col items-center gap-12 md:flex-row md:gap-20"
+              variants={fadeUpVariant}
+              className="relative w-full overflow-hidden rounded-[1.5rem] md:rounded-[2rem] shadow-xl border border-gray-100"
             >
-              <motion.div variants={fadeUpVariant} className="w-full md:w-1/2">
-                <div className="aspect-square w-full overflow-hidden rounded-3xl bg-slate-100 relative">
-                  <div className="absolute inset-0 flex items-center justify-center text-slate-400 font-medium">
-                    [ Founder Image ]
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div variants={fadeUpVariant} className="w-full md:w-1/2">
-                <h2 className="text-3xl font-bold tracking-tight text-[#0f172a] md:text-5xl">
-                  Meet the Founder
-                </h2>
-                <h3 className="mt-2 text-xl font-medium text-[#6495ED]">
-                  Prashant Singh
-                </h3>
-                <div className="mt-8 flex flex-col gap-6 text-lg text-slate-600">
-                  <p>
-                    "I started Go Digital because I saw a massive gap between beautiful design and actual business performance. Agencies were either building pretty websites that didn't convert, or ugly sales funnels that hurt brand trust."
-                  </p>
-                  <p>
-                    "Our philosophy is simple: Design builds trust, and strategy drives revenue. You need both to survive in today's digital landscape."
-                  </p>
-                </div>
-              </motion.div>
+              {/* Replace '/founder-note.jpg' with the actual filename you saved in the public folder */}
+              <Image
+                src="/about/Founder Note.png" 
+                alt="Founder's Note - Aman Agarwal"
+                width={1920}
+                height={600}
+                quality={100}
+                className="h-auto w-full object-cover"
+              />
             </motion.div>
           </div>
         </section>
