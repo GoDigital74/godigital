@@ -11,6 +11,9 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
+    // Don't initialize Lenis on the Sanity Studio — it hijacks scrolling
+    if (pathname.startsWith("/studio")) return;
+
     gsap.registerPlugin(ScrollTrigger);
 
     const lenis = new Lenis({
@@ -66,7 +69,7 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
       lenis.destroy();
       lenisRef.current = null;
     };
-  }, []);
+  }, [pathname]);
 
   // Scroll to top on route change
   useEffect(() => {
