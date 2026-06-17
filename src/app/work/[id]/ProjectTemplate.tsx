@@ -561,9 +561,8 @@ export default function ProjectTemplate({ project }: { project: any }) {
 
       <main className="min-h-screen bg-white">
         
-        {/* 1. HERO SECTION (WITH MARGINS & NO BLUR) */}
-        <div className="pt-32 pb-12 px-4 md:px-8 mx-auto w-full max-w-[100vw]">
-          <section className="relative isolate flex min-h-[500px] md:min-h-[620px] flex-col justify-center overflow-hidden rounded-[2rem] bg-slate-50 px-6 py-20 md:p-20 shadow-xl border border-slate-100">
+          <div className="pt-20 md:pt-24 pb-12 px-4 md:px-8 mx-auto w-full max-w-[100vw]">  
+            <section className="relative isolate flex min-h-[500px] md:min-h-[620px] flex-col justify-center overflow-hidden rounded-[2rem] bg-slate-50 px-6 py-20 md:p-20 shadow-xl border border-slate-100">
             {hasBannerImage && (
               <Image
                 src={project.bannerImage}
