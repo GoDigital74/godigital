@@ -280,33 +280,54 @@ export default function ProjectTemplate({ project }: { project: any }) {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, []);
 
+  const hasBannerImage = Boolean(project.bannerImage);
+
   return (
     <>
       <Header />
 
       <main className="min-h-screen bg-white">
-        {/* 1. HERO SECTION (WHITE WITH BLUE HIGHLIGHTS) */}
-        <section className="relative flex flex-col justify-center bg-white px-6 pt-40 pb-32 md:pt-48 md:pb-40">
-          <div className="mx-auto w-full max-w-7xl">
+        {/* 1. HERO SECTION */}
+        <section className="relative isolate flex min-h-[620px] flex-col justify-center overflow-hidden bg-white px-6 pt-40 pb-32 md:pt-48 md:pb-40">
+          {hasBannerImage && (
+            <>
+              <Image
+                src={project.bannerImage}
+                alt={`${project.brand || "Case study"} banner`}
+                fill
+                priority
+                sizes="100vw"
+                className="absolute inset-0 z-0 object-cover"
+              />
+              <div className="absolute inset-0 z-[1] bg-gradient-to-r from-white/95 via-white/65 to-white/10" />
+              <div className="absolute inset-0 z-[1] bg-gradient-to-t from-white/45 via-transparent to-white/25" />
+            </>
+          )}
+
+          <div className="relative z-[2] mx-auto w-full max-w-7xl">
             <motion.div
               initial="hidden"
               animate="visible"
               variants={staggerContainer}
               className="max-w-4xl"
             >
-              {/* Dynamic Services Pills - Added light blue background for better pop on white */}
+              {/* Dynamic Services Pills */}
               <motion.div variants={fadeUpVariant} className="mb-6 flex flex-wrap gap-3">
                 {(project.services || []).map((service: string) => (
                   <span 
                     key={service} 
-                    className="rounded-full border border-[#6495ED] bg-[#6495ED]/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#6495ED]"
+                    className={`rounded-full border px-4 py-1.5 text-xs font-bold uppercase tracking-widest ${
+                      hasBannerImage
+                        ? "border-[#6495ED]/50 bg-white/75 text-[#0f172a] backdrop-blur-md"
+                        : "border-[#6495ED] bg-[#6495ED]/10 text-[#6495ED]"
+                    }`}
                   >
                     {service}
                   </span>
                 ))}
               </motion.div>
               
-              {/* Dynamic Hero Title - Changed to dark slate for contrast against white */}
+              {/* Dynamic Hero Title */}
               <motion.h1 variants={fadeUpVariant} className="text-4xl font-bold tracking-tight text-[#0f172a] md:text-6xl lg:text-7xl">
                 {project.heroPreTitle}
                 {project.heroHighlight && (
@@ -315,7 +336,7 @@ export default function ProjectTemplate({ project }: { project: any }) {
                 {project.heroPostTitle}
               </motion.h1>
               
-              {/* Dynamic Description - Changed to slate gray */}
+              {/* Dynamic Description */}
               <motion.p variants={fadeUpVariant} className="mt-8 max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl">
                 {project.description}
               </motion.p>

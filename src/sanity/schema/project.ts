@@ -116,6 +116,14 @@ export const projectSchema = defineType({
       rows: 4,
       description: "The summary paragraph underneath the main title."
     }),
+    defineField({
+      name: "bannerImage",
+      title: "Banner Image",
+      type: "image",
+      group: "hero",
+      options: { hotspot: true },
+      description: "Wide case-study banner shown on the /work/project detail page. Recommended ratio: around 2.4:1, similar to 1440 x 600.",
+    }),
 
     // ==========================================
     // GROUP 3: STATS & SERVICES

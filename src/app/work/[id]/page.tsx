@@ -587,6 +587,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
   // 2. Try fetching from Sanity first (CMS-managed projects take priority)
   const query = `*[_type == "project" && slug.current == $id][0]{
     ...,
+    "bannerImage": bannerImage.asset->url,
     "images": images[]{
       title,
       desc,
