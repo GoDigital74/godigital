@@ -5,7 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { ArrowRight, ArrowUpRight, ChevronDown, Send } from "lucide-react";
+import { TransitionLink } from "@/components/layout/PageTransition";
+import { ArrowRight, ChevronDown, BarChart3, Target, TrendingUp, ShieldCheck, LineChart, ArrowUpRight } from "lucide-react";
+
 import { motion, AnimatePresence } from "framer-motion";
 
 const allCategories = [
@@ -256,27 +258,25 @@ export default function InsightsClient({
         )}
 
         {/* 4. NEWSLETTER BANNER */}
-        <section className="mx-auto max-w-7xl px-6 pb-24">
-          <div className="bg-[#0A0A0A] rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
+       <section className="mx-auto mt-24 max-w-7xl px-6 md:px-8">
+          <div className="flex flex-col items-center justify-between gap-8 rounded-3xl border border-white/10 bg-gradient-to-r from-[#111827] to-[#0A0A0A] p-8 shadow-2xl md:flex-row md:p-12">
             <div className="flex items-center gap-6">
-              <div className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center shrink-0">
-                <Send className="w-6 h-6 text-[#6495ED]" />
+              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-[#6495ED]/10">
+                <TrendingUp className="h-8 w-8 text-[#6495ED]" />
               </div>
-              <h3 className="text-2xl md:text-3xl font-serif text-white max-w-sm">
-                Get growth insights straight to{" "}
-                <i className="text-[#6495ED]">your inbox.</i>
-              </h3>
+              <div>
+                <h3 className="text-2xl font-bold text-white">Ready to Be Our Next Success Story?</h3>
+                <p className="mt-2 text-gray-400">Let's grow your brand with performance-driven strategies.</p>
+              </div>
             </div>
-            <div className="flex w-full md:w-auto flex-col md:flex-row gap-4">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="bg-white/5 border border-white/10 text-white rounded-xl px-6 py-4 outline-none focus:border-[#6495ED] transition-colors w-full md:w-80"
-              />
-              <button className="bg-[#6495ED] hover:bg-[#6495ED] text-[#0A0A0A] font-bold rounded-xl px-8 py-4 flex items-center justify-center gap-2 transition-colors shrink-0">
-                Subscribe <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
+            
+            <TransitionLink 
+              href="/contact"
+              className="group flex shrink-0 items-center gap-2 rounded-xl bg-white px-8 py-4 text-sm font-bold text-[#0A0A0A] transition-all hover:bg-gray-200"
+            >
+              Start Your Project
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </TransitionLink>
           </div>
         </section>
 
