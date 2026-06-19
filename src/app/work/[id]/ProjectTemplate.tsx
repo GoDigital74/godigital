@@ -52,9 +52,6 @@ export default function ProjectTemplate({ project }: { project: any }) {
                   sizes="100vw"
                   className="absolute inset-0 z-0 object-cover"
                 />
-                {/* NEW: Subtle gradient overlay for text readability.
-                  Fades from dark slate on the left to transparent on the right. 
-                */}
                 <div className="absolute inset-0 z-[1] bg-gradient-to-r from-slate-900/60 via-slate-900/20 to-transparent pointer-events-none" />
               </>
             )}
@@ -83,7 +80,6 @@ export default function ProjectTemplate({ project }: { project: any }) {
                 </motion.div>
                 
                 {/* Dynamic Hero Title */}
-                {/* Changed base text color to white when there's an image to contrast with the dark gradient */}
                 <motion.h1 variants={fadeUpVariant} className={`text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl ${hasBannerImage ? 'text-white' : 'text-[#0f172a]'}`}>
                   {project.heroPreTitle}
                   {project.heroHighlight && (
@@ -93,7 +89,6 @@ export default function ProjectTemplate({ project }: { project: any }) {
                 </motion.h1>
                 
                 {/* Dynamic Description */}
-                {/* Changed base text color to a light slate when there's an image */}
                 <motion.p variants={fadeUpVariant} className={`mt-8 max-w-2xl text-lg leading-relaxed md:text-xl font-medium ${hasBannerImage ? 'text-slate-200' : 'text-slate-800'}`}>
                   {project.description}
                 </motion.p>
@@ -208,6 +203,30 @@ export default function ProjectTemplate({ project }: { project: any }) {
                   </div>
                 ))}
               </div>
+            </div>
+          </section>
+        )}
+
+        {/* 4.5 VIDEO SHOWCASE (OPTIONAL) - Added margin/padding & rounded corners */}
+        {project.videoUrl && (
+          <section className="bg-white py-12 md:py-16 px-4 md:px-8">
+            <div className="mx-auto max-w-6xl">
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.8 }}
+                className="relative w-full aspect-video md:aspect-[21/9] bg-slate-100 rounded-[2rem] overflow-hidden shadow-xl border border-slate-100"
+              >
+                <video
+                  src={project.videoUrl}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="h-full w-full object-cover"
+                />
+              </motion.div>
             </div>
           </section>
         )}
