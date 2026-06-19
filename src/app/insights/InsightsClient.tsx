@@ -7,7 +7,6 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { TransitionLink } from "@/components/layout/PageTransition";
 import { ArrowRight, ChevronDown, BarChart3, Target, TrendingUp, ShieldCheck, LineChart, ArrowUpRight } from "lucide-react";
-
 import { motion, AnimatePresence } from "framer-motion";
 
 const allCategories = [
@@ -69,14 +68,17 @@ export default function InsightsClient({
         {/* 1. LIGHT HERO SECTION */}
         <section className="bg-[#ffffff] pt-32 pb-20 md:pt-40 md:pb-24 px-6 rounded-b-[2rem] md:rounded-b-[4rem]">
           <div className="mx-auto max-w-7xl">
-            <p className="text-[#6495ED] text-xs font-bold tracking-widest uppercase mb-6">
+            {/* MATCHED: Pre-title font styling */}
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#6495ED]">
               The GoDigital Journal
             </p>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif text-[#0A0A0A] max-w-3xl leading-tight">
+            {/* MATCHED: Main title font styling (removed font-serif, added bold, tracking-tight, gray-900) */}
+            <h1 className="mt-6 text-4xl font-bold leading-tight tracking-tight text-gray-900 md:text-6xl lg:text-[4rem] max-w-3xl">
               Ideas, strategies & lessons that{" "}
-              <i className="text-[#6495ED]">drive growth.</i>
+              <span className="text-[#6495ED]">drive growth.</span>
             </h1>
-            <p className="mt-6 text-gray-700 max-w-md text-lg">
+            {/* MATCHED: Description font styling */}
+            <p className="mt-6 text-lg text-gray-600 max-w-md">
               Real insights from the trenches of performance, branding, commerce
               and growth systems.
             </p>
@@ -107,7 +109,7 @@ export default function InsightsClient({
               ))}
             </div>
 
-            {/* Custom Sort Dropdown (Stacked dark style matched to image) */}
+            {/* Custom Sort Dropdown */}
             <div className="relative shrink-0 z-20">
               <button 
                 onClick={() => setSortDropdownOpen(!sortDropdownOpen)}
@@ -156,7 +158,7 @@ export default function InsightsClient({
           </div>
         </section>
 
-        {/* 3. UNIFIED INSIGHTS GRID (Strictly proportioned) */}
+        {/* 3. UNIFIED INSIGHTS GRID */}
         <section className="mx-auto max-w-7xl px-6 py-16 md:py-20">
           {paginatedPosts.length === 0 ? (
             <div className="py-20 text-center text-gray-500">
@@ -258,25 +260,30 @@ export default function InsightsClient({
         )}
 
         {/* 4. NEWSLETTER BANNER */}
-       <section className="mx-auto mt-24 max-w-7xl px-6 md:px-8">
-          <div className="flex flex-col items-center justify-between gap-8 rounded-3xl border border-white/10 bg-gradient-to-r from-[#111827] to-[#0A0A0A] p-8 shadow-2xl md:flex-row md:p-12">
+        <section className="mx-auto max-w-7xl px-6 pb-24">
+          <div className="bg-[#0A0A0A] rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
             <div className="flex items-center gap-6">
-              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-[#6495ED]/10">
-                <TrendingUp className="h-8 w-8 text-[#6495ED]" />
+              <div className="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center shrink-0 bg-[#6495ED]/10">
+                <TrendingUp className="w-8 h-8 text-[#6495ED]" />
               </div>
-              <div>
-                <h3 className="text-2xl font-bold text-white">Ready to Be Our Next Success Story?</h3>
-                <p className="mt-2 text-gray-400">Let's grow your brand with performance-driven strategies.</p>
+              <div className="flex flex-col">
+                {/* MATCHED: Newsletter text styling without serif */}
+                <h3 className="text-2xl font-bold text-white max-w-sm">
+                  Get growth insights straight to{" "}
+                  <span className="text-[#6495ED]">your inbox.</span>
+                </h3>
               </div>
             </div>
-            
-            <TransitionLink 
-              href="/contact"
-              className="group flex shrink-0 items-center gap-2 rounded-xl bg-white px-8 py-4 text-sm font-bold text-[#0A0A0A] transition-all hover:bg-gray-200"
-            >
-              Start Your Project
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </TransitionLink>
+            <div className="flex w-full md:w-auto flex-col md:flex-row gap-4">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="bg-white/5 border border-white/10 text-white rounded-xl px-6 py-4 outline-none focus:border-[#6495ED] transition-colors w-full md:w-80"
+              />
+              <button className="bg-[#6495ED] hover:bg-[#527acc] text-[#0A0A0A] font-bold rounded-xl px-8 py-4 flex items-center justify-center gap-2 transition-colors shrink-0">
+                Subscribe <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
           </div>
         </section>
 
