@@ -114,7 +114,7 @@ export function Footer() {
                     className="group relative flex h-12 w-12 items-center justify-center focus:outline-none drop-shadow-md transition-all duration-300 hover:drop-shadow-[0_12px_28px_rgba(100,149,237,0.45)]"
                   >
                     {/* 3D SHADOW LAYER: Pushed it further down (translate-y-1.5) and made it darker (bg-gray-300) */}
-                    <div className="absolute inset-0 translate-y-1.5 rounded-xl bg-gray-300 transition-all duration-200 group-hover:bg-[#6495ED]/40 group-active:translate-y-0.5" />
+                    <div className="absolute inset-0 translate-y-1.5 rounded-xl bg-gray-400 transition-all duration-200 group-hover:bg-[#6495ED]/40 group-active:translate-y-0.5" />
                     
                     {/* Main Button Layer */}
                     <div className="relative flex h-full w-full items-center justify-center rounded-xl border border-gray-200 bg-white text-gray-400 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:border-[#6495ED] group-hover:bg-[#6495ED] group-hover:text-white group-active:translate-y-0.5">

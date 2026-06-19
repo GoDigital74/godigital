@@ -77,11 +77,11 @@ export function AllLogos({ sanityLogos = [] }: { sanityLogos?: SanityPartner[] }
                       alt={partner.name}
                       fill
                       unoptimized={isExternalLogo(partner.logo)}
-                      className="object-contain opacity-50 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0"
+                      className="object-contain opacity-50 grayscale transition-all duration-300 group-hover:opacity-70 group-hover:grayscale-0"
                     />
                   </div>
                 ) : (
-                  <div className="flex h-16 w-full items-center justify-center rounded-xl border border-gray-200 bg-gray-50 px-2 text-center text-xs font-semibold text-gray-400">
+                  <div className="flex h-16 w-full items-center justify-center rounded-xl border border-gray-300 bg-gray-200 px-2 text-center text-xs font-semibold text-gray-500">
                     {partner.name}
                   </div>
                 )}
@@ -107,11 +107,11 @@ export function AllLogos({ sanityLogos = [] }: { sanityLogos?: SanityPartner[] }
                       alt={partner.name}
                       fill
                       unoptimized={isExternalLogo(partner.logo)}
-                      className="object-contain opacity-50 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0"
+                      className="object-contain opacity-50 grayscale transition-all duration-300 group-hover:opacity-70 group-hover:grayscale-0"
                     />
                   </div>
                 ) : (
-                  <div className="flex h-16 w-full items-center justify-center rounded-xl border border-gray-200 bg-gray-50 px-2 text-center text-xs font-semibold text-gray-400">
+                  <div className="flex h-16 w-full items-center justify-center rounded-xl border border-gray-300 bg-gray-200 px-2 text-center text-xs font-semibold text-gray-500">
                     {partner.name}
                   </div>
                 )}
