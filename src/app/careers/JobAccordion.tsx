@@ -16,7 +16,8 @@ interface Job {
 }
 
 export function JobAccordion({ jobs }: { jobs: Job[] }) {
-  const [openJobId, setOpenJobId] = useState<string | null>(jobs[0]?._id || null);
+  // FIXED: Set the initial state to null so all tabs are closed by default
+  const [openJobId, setOpenJobId] = useState<string | null>(null);
 
   const toggleJob = (id: string) => {
     setOpenJobId((prev) => (prev === id ? null : id));
