@@ -15,7 +15,7 @@ export function LogoWall() {
         ease: [0.22, 1, 0.36, 1],
       }}
       // Replaced 'section-padding' with explicit smaller padding (py-12 md:py-16)
-      className="border-y border-slate-100 bg-white py-12 md:py-16"
+      className="border-y border-slate-100 bg-white py-12 md:py-12"
     >
       <div className="mx-auto max-w-7xl">
         <motion.p

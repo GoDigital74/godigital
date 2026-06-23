@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export function GlobalPresence() {
   return (
-    <section className="bg-white py-12 md:py-16">
+    <section className="bg-white py-12 md:py-2">
       <div className="w-full px-3 md:px-1">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

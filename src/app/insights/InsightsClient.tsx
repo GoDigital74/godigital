@@ -63,27 +63,69 @@ export default function InsightsClient({
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-[#FAFAFA]">
+      <main className="min-h-screen bg-[#FAFAFA]">         
+
+{/* 1. HERO SECTION */}
+<section className="relative min-h-[80vh] overflow-hidden bg-[#0A0A0A]">
+
+  {/* Background Image */}
+  <div className="absolute inset-0 z-0">
+    <Image
+      src="/insights/insights-bg.png"
+      alt="Insights Background"
+      fill
+      priority
+      sizes="100vw"
+      className="object-cover object-center"
+    />
+  </div>
+
+  {/* Optional Dark Overlay */}
+  <div className="absolute inset-0 z-[1] bg-black/40" />
+
+  {/* Content */}
+  <div className="relative z-10 mx-auto flex min-h-[80vh] max-w-7xl items-center px-6">
+    <div className="max-w-3xl">
+      <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#6495ED]">
+        The GoDigital Journal
+      </p>
+
+      <h1 className="mt-6 text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight text-white">
+        Ideas, strategies &
+        <br />
+        lessons that{" "}
+        <span className="text-[#6495ED]">
+          drive growth.
+        </span>
+      </h1>
+
+      <p className="mt-8 max-w-md text-base md:text-lg leading-relaxed text-gray-300">
+        Real insights from the trenches of performance,
+        branding, commerce and growth systems.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+    {/* 1. LIGHT HERO SECTION */}
+
+      {/* <section className="bg-[#ffffff] pt-32 pb-20 md:pt-40 md:pb-24 px-6 rounded-b-[2rem] md:rounded-b-[4rem]">
         
-        {/* 1. LIGHT HERO SECTION */}
-        <section className="bg-[#ffffff] pt-32 pb-20 md:pt-40 md:pb-24 px-6 rounded-b-[2rem] md:rounded-b-[4rem]">
           <div className="mx-auto max-w-7xl">
-            {/* MATCHED: Pre-title font styling */}
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#6495ED]">
               The GoDigital Journal
             </p>
-            {/* MATCHED: Main title font styling (removed font-serif, added bold, tracking-tight, gray-900) */}
             <h1 className="mt-6 text-4xl font-bold leading-tight tracking-tight text-gray-900 md:text-6xl lg:text-[4rem] max-w-3xl">
               Ideas, strategies & lessons that{" "}
               <span className="text-[#6495ED]">drive growth.</span>
             </h1>
-            {/* MATCHED: Description font styling */}
             <p className="mt-6 text-lg text-gray-600 max-w-md">
               Real insights from the trenches of performance, branding, commerce
               and growth systems.
             </p>
           </div>
-        </section>
+        </section>   */}
 
         {/* 2. FILTER & SORT BAR */}
         <section className="mx-auto max-w-7xl px-6 py-10 border-b border-gray-200">
@@ -287,3 +329,5 @@ export default function InsightsClient({
     </>
   );
 }
+
+
