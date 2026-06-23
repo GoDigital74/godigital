@@ -14,11 +14,8 @@ const categories = [
   "E-commerce",
   "Retail",
   "Health & Wellness",
-  "Personal Care",
-  "Beauty & Skin Care",
   "Hospitality & Food",
   "Fashion & Lifestyle",
-  "Manufacturing & Packaging",
   "Automotive"
 ];
 
