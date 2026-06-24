@@ -174,7 +174,7 @@ export default async function CareersPage() {
           {/* Floating Avatars */}
           <div className="pointer-events-none absolute inset-0 z-10 hidden lg:block">
             {/* Top Left */}
-            <div className="absolute left-[15%] top-[18%] flex h-28 w-28 items-center justify-center rounded-full bg-[#a3e635] overflow-hidden border-[6px] border-[#0A0A0A]">
+            <div className="absolute left-[15%] top-[18%] flex h-28 w-28 items-center justify-center rounded-full bg-[#0A0A0A] overflow-hidden border-[6px] border-[#0A0A0A]">
               <Image
                 unoptimized
                 src="https://randomuser.me/api/portraits/women/42.jpg"
@@ -185,7 +185,7 @@ export default async function CareersPage() {
             </div>
 
             {/* Mid Left */}
-            <div className="absolute left-[8%] top-[50%] flex h-32 w-32 items-center justify-center rounded-full bg-[#e5e7eb] overflow-hidden border-[6px] border-[#0A0A0A]">
+            <div className="absolute left-[8%] top-[50%] flex h-32 w-32 items-center justify-center rounded-full bg-[#0A0A0A] overflow-hidden border-[6px] border-[#0A0A0A]">
               <Image
                 unoptimized
                 src="https://randomuser.me/api/portraits/men/32.jpg"
@@ -196,7 +196,7 @@ export default async function CareersPage() {
             </div>
 
             {/* Bottom Left */}
-            <div className="absolute bottom-[10%] left-[22%] flex h-24 w-24 items-center justify-center rounded-full bg-[#6b21a8] overflow-hidden border-[6px] border-[#0A0A0A]">
+            <div className="absolute bottom-[10%] left-[22%] flex h-24 w-24 items-center justify-center rounded-full bg-[#0A0A0A] overflow-hidden border-[6px] border-[#0A0A0A]">
               <Image
                 unoptimized
                 src="https://randomuser.me/api/portraits/women/68.jpg"
@@ -207,7 +207,7 @@ export default async function CareersPage() {
             </div>
 
             {/* Top Right */}
-            <div className="absolute right-[18%] top-[12%] flex h-28 w-28 items-center justify-center rounded-full bg-[#facc15] overflow-hidden border-[6px] border-[#0A0A0A]">
+            <div className="absolute right-[18%] top-[12%] flex h-28 w-28 items-center justify-center rounded-full bg-[#0A0A0A] overflow-hidden border-[6px] border-[#0A0A0A]">
               <Image
                 unoptimized
                 src="https://randomuser.me/api/portraits/men/46.jpg"
@@ -218,7 +218,7 @@ export default async function CareersPage() {
             </div>
 
             {/* Mid Right */}
-            <div className="absolute right-[8%] top-[45%] flex h-24 w-24 items-center justify-center rounded-full bg-[#2dd4bf] overflow-hidden border-[6px] border-[#0A0A0A]">
+            <div className="absolute right-[8%] top-[45%] flex h-24 w-24 items-center justify-center rounded-full bg-[#0A0A0A] overflow-hidden border-[6px] border-[#0A0A0A]">
               <Image
                 unoptimized
                 src="https://randomuser.me/api/portraits/women/17.jpg"
@@ -229,7 +229,7 @@ export default async function CareersPage() {
             </div>
 
             {/* Bottom Right */}
-            <div className="absolute bottom-[20%] right-[22%] flex h-32 w-32 items-center justify-center rounded-full bg-[#a3e635] overflow-hidden border-[6px] border-[#0A0A0A]">
+            <div className="absolute bottom-[20%] right-[22%] flex h-32 w-32 items-center justify-center rounded-full bg-[#0A0A0A] overflow-hidden border-[6px] border-[#0A0A0A]">
               <Image
                 unoptimized
                 src="https://randomuser.me/api/portraits/men/22.jpg"
@@ -240,7 +240,7 @@ export default async function CareersPage() {
             </div>
 
             {/* Bottom Far Right */}
-            <div className="absolute bottom-[10%] right-[12%] flex h-20 w-20 items-center justify-center rounded-full bg-[#4c1d95] overflow-hidden border-[6px] border-[#0A0A0A]">
+            <div className="absolute bottom-[10%] right-[12%] flex h-20 w-20 items-center justify-center rounded-full bg-[#0A0A0A] overflow-hidden border-[6px] border-[#0A0A0A]">
               <Image
                 unoptimized
                 src="https://randomuser.me/api/portraits/women/91.jpg"
