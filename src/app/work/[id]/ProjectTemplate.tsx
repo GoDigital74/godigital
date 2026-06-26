@@ -344,19 +344,27 @@ const staggerContainer: Variants = {
 function YouTubeShowcase({ url }: { url: string }) {
   const [isPlaying, setIsPlaying] = useState(false);
 
-  // Extract YouTube ID from various URL formats
+  // Extract YouTube ID from various URL formats (including Shorts)
   const getYouTubeId = (url: string) => {
-    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    if (!url) return null;
+    const regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|shorts\/)([^#\&\?]*).*/;
     const match = url.match(regExp);
     return (match && match[2].length === 11) ? match[2] : null;
   };
 
   const videoId = getYouTubeId(url);
 
-  if (!videoId) return null;
+  // Fallback if the URL isn't recognized
+  if (!videoId) {
+    return (
+      <div className="w-full aspect-video bg-slate-100 rounded-[2rem] flex items-center justify-center border border-slate-200 text-slate-500 font-medium">
+        Valid YouTube URL required.
+      </div>
+    );
+  }
 
-  // Fetch the max resolution thumbnail directly from YouTube
-  const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+  // hqdefault.jpg is guaranteed to exist for all YouTube videos
+  const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 
   return (
     <div 
@@ -365,13 +373,13 @@ function YouTubeShowcase({ url }: { url: string }) {
     >
       {!isPlaying ? (
         <>
-          <Image 
+          {/* Using a standard img tag avoids Next.js remote domain configuration errors */}
+          <img 
             src={thumbnailUrl} 
             alt="Video Thumbnail" 
-            fill 
-            className="object-cover opacity-80 transition-transform duration-700 group-hover:scale-105" 
-            unoptimized 
+            className="absolute inset-0 w-full h-full object-cover opacity-80 transition-transform duration-700 group-hover:scale-105" 
           />
+          
           <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
             <div className="w-16 h-16 md:w-20 md:h-20 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
               <Play className="w-6 h-6 md:w-8 md:h-8 text-[#6495ED] fill-[#6495ED] ml-1.5" />
@@ -391,7 +399,6 @@ function YouTubeShowcase({ url }: { url: string }) {
     </div>
   );
 }
-
 // =========================================
 // MAIN TEMPLATE COMPONENT
 // =========================================
