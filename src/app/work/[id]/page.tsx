@@ -1,4 +1,3 @@
-
 import { client } from "@/sanity/lib/client";
 import { notFound } from "next/navigation";
 import ProjectTemplate from "./ProjectTemplate";
@@ -14,7 +13,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
   const query = `*[_type == "project" && slug.current == $id][0]{
     ...,
     "bannerImage": bannerImage.asset->url,
-    "videoUrl": videoUrl,
+    
+    "videoUrl": video, 
+    
     "images": images[]{
       title,
       desc,
@@ -32,4 +33,3 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
   // 4. Render the purely dynamic template
   return <ProjectTemplate project={project} />;
 }
-
