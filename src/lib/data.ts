@@ -150,6 +150,4 @@ export const footerColumns = [
 export const footerSocials = [
   { label: "LinkedIn", href: " https://www.linkedin.com/company/go-digital-agencyy/", abbr: "in" },
   { label: "Instagram", href: " https://www.instagram.com/go_digital_agency.in/", abbr: "ig" },
-  { label: "YouTube", href: "https://youtube.com", abbr: "yt" },
-  { label: "Facebook", href: "https://facebook.com", abbr: "fb" },
 ] as const;
