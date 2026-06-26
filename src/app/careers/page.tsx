@@ -153,56 +153,7 @@ export default async function CareersPage() {
           </div>
         </section>
 
-        {/* ========================================= */}
-        {/* WHY WORK WITH US SECTION */}
-        {/* ========================================= */}
-        {/* <section className="mx-auto max-w-7xl px-6 py-24 md:py-32">
-          <h2 className="mb-16 text-center text-4xl font-bold text-[#0A0A0A] md:text-5xl">
-            Why Work With Us
-          </h2>
-          <div className="grid gap-8 md:grid-cols-3">
-           
-            <div className="rounded-[2rem] bg-[#f8fafc] p-10 transition-shadow hover:shadow-lg border border-gray-100">
-              <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-full bg-[#6495ED]/20 text-[#6495ED]">
-                <Check className="h-6 w-6" strokeWidth={2.5} />
-              </div>
-              <h3 className="mb-4 text-xl font-bold text-[#0A0A0A]">
-                Innovation Focus
-              </h3>
-              <p className="text-gray-500 leading-relaxed text-base font-medium">
-                Work on cutting-edge solutions that are transforming retail
-                operations across India.
-              </p>
-            </div>
-
-            <div className="rounded-[2rem] bg-[#f8fafc] p-10 transition-shadow hover:shadow-lg border border-gray-100">
-              <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-full bg-[#6495ED]/20 text-[#6495ED]">
-                <Check className="h-6 w-6" strokeWidth={2.5} />
-              </div>
-              <h3 className="mb-4 text-xl font-bold text-[#0A0A0A]">
-                Growth Opportunities
-              </h3>
-              <p className="text-gray-500 leading-relaxed text-base font-medium">
-                Continuous learning and development paths to advance your skills
-                and career.
-              </p>
-            </div>
-
-            <div className="rounded-[2rem] bg-[#f8fafc] p-10 transition-shadow hover:shadow-lg border border-gray-100">
-              <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-full bg-[#6495ED]/20 text-[#6495ED]">
-                <Check className="h-6 w-6" strokeWidth={2.5} />
-              </div>
-              <h3 className="mb-4 text-xl font-bold text-[#0A0A0A]">
-                Inclusive Culture
-              </h3>
-              <p className="text-gray-500 leading-relaxed text-base font-medium">
-                Join a diverse team that values collaboration, respect, and
-                work-life balance.
-              </p>
-            </div>
-          </div>
-        </section> */}
-
+        
         {/* ========================================= */}
         {/* OPEN POSITIONS SECTION */}
         {/* ========================================= */}
