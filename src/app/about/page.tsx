@@ -335,10 +335,8 @@ export default function AboutPage() {
                   className="absolute top-[64px] left-0 h-[2px] bg-[#6495ED] hidden md:block z-0 origin-left" 
                 />
                 
-                <div className="grid grid-cols-1 gap-12 md:grid-cols-5 md:gap-6">
+                <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-6">
                   {[
-                    { year: "2021", title: "The Idea", desc: "A small team with a big belief." },
-                    { year: "2022", title: "First Client", desc: "Took the first step. Delivered the first win." },
                     { year: "2023", title: "20+ Brands", desc: "More brands, more responsibility." },
                     { year: "2024", title: "National Presence", desc: "Scaling systems. Building trust." },
                     { year: "2025", title: "150+ Projects", desc: "Still curious. Still building." },

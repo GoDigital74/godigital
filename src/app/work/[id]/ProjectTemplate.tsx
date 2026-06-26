@@ -1,315 +1,3 @@
-// // "use client";
-
-// // import { useEffect } from "react";
-// // import { motion, Variants } from "framer-motion";
-// // import { Header } from "@/components/layout/Header";
-// // import { Footer } from "@/components/layout/Footer";
-// // import Image from "next/image";
-
-// // // =========================================
-// // // ANIMATION VARIANTS
-// // // =========================================
-// // const fadeUpVariant: Variants = {
-// //   hidden: { opacity: 0, y: 30 },
-// //   visible: { 
-// //     opacity: 1, 
-// //     y: 0, 
-// //     transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
-// //   },
-// // };
-
-// // const staggerContainer: Variants = {
-// //   hidden: { opacity: 0 },
-// //   visible: {
-// //     opacity: 1,
-// //     transition: { staggerChildren: 0.15 },
-// //   },
-// // };
-
-// // export default function ProjectTemplate({ project }: { project: any }) {
-// //   useEffect(() => {
-// //     window.scrollTo({ top: 0, behavior: "instant" });
-// //   }, []);
-
-// //   const hasBannerImage = Boolean(project.bannerImage);
-
-// //   return (
-// //     <>
-// //       <Header />
-
-// //       <main className="min-h-screen bg-white">
-        
-// //         {/* 1. HERO SECTION */}
-// //         <div className="pt-20 md:pt-24 pb-12 px-4 md:px-8 mx-auto w-full max-w-[100vw]">
-// //           <section className="relative isolate flex min-h-[500px] md:min-h-[620px] flex-col justify-center overflow-hidden rounded-[2rem] bg-slate-50 px-6 py-20 md:p-20 shadow-xl border border-slate-100">
-// //             {hasBannerImage && (
-// //               <>
-// //                 <Image
-// //                   src={project.bannerImage}
-// //                   alt={`${project.brand || "Case study"} banner`}
-// //                   fill
-// //                   priority
-// //                   sizes="100vw"
-// //                   className="absolute inset-0 z-0 object-cover"
-// //                 />
-                
-// //                 {/* 1. Dark Gradient: Locks to the left and fades out */}
-// //                 <div className="absolute inset-y-0 left-0 z-[1] w-full md:w-[75%] bg-gradient-to-r from-black/90 via-black/60 to-transparent pointer-events-none" />
-                
-// //                 {/* 2. Glass Blur: Restricted only to the left side and masked to fade smoothly */}
-// //                 <div 
-// //                   className="absolute inset-y-0 left-0 z-[1] w-full md:w-[60%] backdrop-blur-[10px] pointer-events-none"
-// //                   style={{
-// //                     maskImage: "linear-gradient(to right, black 50%, transparent 100%)",
-// //                     WebkitMaskImage: "linear-gradient(to right, black 50%, transparent 100%)"
-// //                   }}
-// //                 />
-// //               </>
-// //             )}
-
-// //             <div className="relative z-[2] mx-auto w-full max-w-7xl">
-// //               <motion.div
-// //                 initial="hidden"
-// //                 animate="visible"
-// //                 variants={staggerContainer}
-// //                 className="max-w-4xl"
-// //               >
-// //                 {/* Dynamic Services Pills */}
-// //                 <motion.div variants={fadeUpVariant} className="mb-6 flex flex-wrap gap-3">
-// //                   {(project.services || []).map((service: string) => (
-// //                     <span 
-// //                       key={service} 
-// //                       className={`rounded-full border px-4 py-1.5 text-xs font-bold uppercase tracking-widest ${
-// //                         hasBannerImage
-// //                           ? "border-slate-200 bg-white/95 text-[#0f172a]"
-// //                           : "border-[#6495ED] bg-[#6495ED]/10 text-[#6495ED]"
-// //                       }`}
-// //                     >
-// //                       {service}
-// //                     </span>
-// //                   ))}
-// //                 </motion.div>
-                
-// //                 {/* Dynamic Hero Title */}
-// //                 <motion.h1 variants={fadeUpVariant} className={`text-3xl font-bold tracking-tight md:text-3xl lg:text-4xl ${hasBannerImage ? 'text-white' : 'text-[#0f172a]'}`}>
-// //                   {project.heroPreTitle}
-// //                   {project.heroHighlight && (
-// //                     <span className="text-[#6495ED]"> {project.heroHighlight} </span>
-// //                   )}
-// //                   {project.heroPostTitle}
-// //                 </motion.h1>
-                
-// //                 {/* Dynamic Description */}
-// //                 <motion.p variants={fadeUpVariant} className={`mt-8 max-w-2xl text-lg leading-relaxed md:text-xl font-medium ${hasBannerImage ? 'text-slate-200' : 'text-slate-800'}`}>
-// //                   {project.description}
-// //                 </motion.p>
-// //               </motion.div>
-// //             </div>
-// //           </section>
-// //         </div>
-
-// //         {/* 2. RESULTS GRID (FLOATING OVERLAY) */}
-// //         {project.stats && project.stats.length > 0 && (
-// //           <div className="mx-auto max-w-7xl px-6 md:px-12">
-// //             <motion.div 
-// //               initial={{ opacity: 0, y: 40 }}
-// //               animate={{ opacity: 1, y: 0 }}
-// //               transition={{ duration: 0.8, delay: 0.4 }}
-// //               className="-mt-24 relative z-10 grid grid-cols-2 gap-4 rounded-3xl bg-[#111827] p-6 shadow-2xl shadow-slate-200/50 border border-white/5 md:grid-cols-3 md:gap-8 md:p-12"
-// //             >
-// //               {project.stats.map((result: any, i: number) => (
-// //                 <div key={i} className="flex flex-col border-l border-white/10 pl-4 md:pl-6">
-// //                   <span className="text-2xl font-bold text-[#6495ED] md:text-4xl">{result.stat}</span>
-// //                   <span className="mt-2 text-xs font-medium text-gray-400 md:text-sm">{result.label}</span>
-// //                 </div>
-// //               ))}
-// //             </motion.div>
-// //           </div>
-// //         )}
-
-// //         {/* 3. CHALLENGE & STRATEGY (WHITE) */}
-// //         <section className="px-6 py-24 md:py-32">
-// //           <div className="mx-auto max-w-7xl">
-            
-// //             {/* Dynamic Challenges */}
-// //             {project.challenges && project.challenges.length > 0 && (
-// //               <motion.div
-// //                 initial="hidden"
-// //                 whileInView="visible"
-// //                 viewport={{ once: true, amount: 0.3 }}
-// //                 variants={staggerContainer}
-// //                 className="mb-24 grid gap-12 md:grid-cols-12 md:gap-20"
-// //               >
-// //                 <motion.div variants={fadeUpVariant} className="md:col-span-4">
-// //                   <h2 className="text-3xl font-bold tracking-tight text-[#0f172a] md:text-5xl">The Challenge</h2>
-// //                 </motion.div>
-// //                 <motion.div variants={fadeUpVariant} className="grid gap-8 md:col-span-8 md:grid-cols-2">
-// //                   {project.challenges.map((challenge: any, i: number) => (
-// //                     <div key={i}>
-// //                       <h3 className="text-xl font-bold text-[#0f172a]">{challenge.title}</h3>
-// //                       <p className="mt-3 text-slate-600">{challenge.desc}</p>
-// //                     </div>
-// //                   ))}
-// //                 </motion.div>
-// //               </motion.div>
-// //             )}
-
-// //             {/* Dynamic Strategy */}
-// //             {project.strategies && project.strategies.length > 0 && (
-// //               <motion.div
-// //                 initial="hidden"
-// //                 whileInView="visible"
-// //                 viewport={{ once: true, amount: 0.3 }}
-// //                 variants={staggerContainer}
-// //                 className="grid gap-12 border-t border-slate-200 pt-24 md:grid-cols-12 md:gap-20"
-// //               >
-// //                 <motion.div variants={fadeUpVariant} className="md:col-span-4">
-// //                   <h2 className="text-3xl font-bold tracking-tight text-[#0f172a] md:text-5xl">Our Strategy</h2>
-// //                 </motion.div>
-// //                 <motion.div variants={fadeUpVariant} className="grid gap-8 md:col-span-8 md:grid-cols-2">
-// //                   {project.strategies.map((strat: any, i: number) => (
-// //                     <div key={i} className="rounded-2xl bg-slate-50 p-8 border border-slate-100">
-// //                       <h3 className="text-xl font-bold text-[#0f172a]">{strat.title}</h3>
-// //                       <p className="mt-3 text-slate-600 leading-relaxed">{strat.desc}</p>
-// //                     </div>
-// //                   ))}
-// //                 </motion.div>
-// //               </motion.div>
-// //             )}
-// //           </div>
-// //         </section>
-
-// //         {/* 4. FEATURED IMAGES */}
-// //         {project.images && project.images.length > 0 && (
-// //           <section className="bg-slate-50 px-6 py-24 md:py-32">
-// //             <div className="mx-auto max-w-7xl">
-// //               <motion.div
-// //                 initial={{ opacity: 0, y: 20 }}
-// //                 whileInView={{ opacity: 1, y: 0 }}
-// //                 viewport={{ once: true }}
-// //                 className="mb-12 text-center"
-// //               >
-// //                 <h2 className="text-3xl font-bold tracking-tight text-[#0f172a] md:text-4xl">Featured Work</h2>
-// //               </motion.div>
-// //               <div className="grid gap-8 md:grid-cols-2">
-// //                 {project.images.map((img: any, i: number) => (
-// //                   <div key={i} className="flex flex-col gap-4">
-// //                     <div className="aspect-video w-full rounded-3xl overflow-hidden bg-slate-200 flex items-center justify-center border border-slate-300">
-// //                       {img.url ? (
-// //                         <Image
-// //                           src={img.url}
-// //                           alt={img.title || `Featured work ${i + 1}`}
-// //                           width={800}
-// //                           height={450}
-// //                           className="h-full w-full object-cover"
-// //                         />
-// //                       ) : (
-// //                         <span className="text-slate-400 font-medium">[ Image Placeholder ]</span>
-// //                       )}
-// //                     </div>
-// //                     <div>
-// //                       <h4 className="font-bold text-[#0f172a]">{img.title}</h4>
-// //                       <p className="text-sm text-slate-500">{img.desc}</p>
-// //                     </div>
-// //                   </div>
-// //                 ))}
-// //               </div>
-// //             </div>
-// //           </section>
-// //         )}
-
-// //         {/* 4.5 VIDEO SHOWCASE (OPTIONAL) */}
-// //         {project.videoUrl && (
-// //           <section className="bg-white py-12 md:py-16 px-4 md:px-8">
-// //             <div className="mx-auto max-w-7xl">
-// //               <motion.div
-// //                 initial={{ opacity: 0 }}
-// //                 whileInView={{ opacity: 1 }}
-// //                 viewport={{ once: true, amount: 0.1 }}
-// //                 transition={{ duration: 0.8 }}
-// //                 className="relative w-full aspect-video md:aspect-[21/9] bg-slate-100 rounded-[2rem] overflow-hidden shadow-xl border border-slate-100"
-// //               >
-// //                 <video
-// //                   src={project.videoUrl}
-// //                   autoPlay
-// //                   loop
-// //                   muted
-// //                   playsInline
-// //                   className="h-full w-full object-cover"
-// //                 />
-// //               </motion.div>
-// //             </div>
-// //           </section>
-// //         )}
-
-// //         {/* 5. OUTCOME & LEARNINGS */}
-// //         <section className="px-6 py-24 md:py-32">
-// //           <div className="mx-auto max-w-7xl">
-// //             <motion.div
-// //               initial="hidden"
-// //               whileInView="visible"
-// //               viewport={{ once: true, amount: 0.3 }}
-// //               variants={staggerContainer}
-// //               className="grid gap-16 md:grid-cols-2 md:gap-24"
-// //             >
-// //               {/* Dynamic Outcomes */}
-// //               <motion.div variants={fadeUpVariant}>
-// //                 <h2 className="mb-8 text-3xl font-bold tracking-tight text-[#0f172a] md:text-4xl">The Outcome</h2>
-// //                 <ul className="space-y-6">
-// //                   {(project.outcomes || []).map((item: any, i: number) => (
-// //                     <li key={i} className="flex flex-col">
-// //                       <span className="font-bold text-[#6495ED]">{item.title}</span>
-// //                       <span className="text-slate-600 font-medium">{item.desc}</span>
-// //                     </li>
-// //                   ))}
-// //                 </ul>
-// //               </motion.div>
-
-// //               {/* Dynamic Learnings */}
-// //               <motion.div variants={fadeUpVariant}>
-// //                 <h2 className="mb-8 text-3xl font-bold tracking-tight text-[#0f172a] md:text-4xl">Key Learnings</h2>
-// //                 <div className="space-y-8">
-// //                   {(project.learnings || []).map((learning: any, i: number) => (
-// //                     <div key={i}>
-// //                       <h4 className="font-bold text-[#0f172a]">{learning.title}</h4>
-// //                       <p className="mt-1 text-slate-600">{learning.desc}</p>
-// //                     </div>
-// //                   ))}
-// //                 </div>
-// //               </motion.div>
-// //             </motion.div>
-// //           </div>
-// //         </section>
-
-// //         {/* 6. BOTTOM QUOTE (DARK) */}
-// //         {project.quote && (
-// //           <section className="bg-[#0A0A0A] px-6 py-20 md:py-22">
-// //             <div className="mx-auto max-w-4xl text-center">
-// //               <motion.div
-// //                 initial={{ opacity: 0, scale: 0.95 }}
-// //                 whileInView={{ opacity: 1, scale: 1 }}
-// //                 viewport={{ once: true }}
-// //                 transition={{ duration: 0.8 }}
-// //               >
-// //                 <svg className="mx-auto mb-8 h-7 w-12 text-[#6495ED]/50" fill="currentColor" viewBox="0 0 24 24">
-// //                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-// //                 </svg>
-// //                 <h2 className="text-2xl font-medium leading-relaxed text-white md:text-2xl md:leading-snug">
-// //                   "{project.quote}"
-// //                 </h2>
-// //               </motion.div>
-// //             </div>
-// //           </section>
-// //         )}
-// //       </main>
-// //       <Footer />
-// //     </>
-// //   );
-// // }
-
-
-
-
 // "use client";
 
 // import { useEffect } from "react";
@@ -352,16 +40,17 @@
 //       <main className="min-h-screen bg-white">
         
 //         {/* 1. INITIAL TEXT SECTION (Visible on Load) */}
-//         <section className="pt-32 md:pt-44 pb-12 px-6 md:px-12 mx-auto max-w-8xl flex flex-col items-start">
+//         {/* Adjusted to max-w-[1400px] to perfectly align with the banner width below */}
+//         <section className="pt-32 md:pt-44 pb-12 px-4 md:px-8 mx-auto w-full max-w-[1300px] flex flex-col items-start">
 //           <motion.div
 //             initial="hidden"
 //             animate="visible"
 //             variants={staggerContainer}
-//             // max-w-5xl prevents the text from flowing across the entire screen
-//             className="max-w-5xl w-full"
+//             // Removed max-w-5xl so the text flows across the entire container width
+//             className="w-full"
 //           >
-//             {/* Dynamic Services Pills - Styled to match screenshot */}
-//             <motion.div variants={fadeUpVariant} className="mb-8 flex flex-wrap gap-3">
+//             {/* Dynamic Services Pills */}
+//             <motion.div variants={fadeUpVariant} className="mb-6 flex flex-wrap gap-3">
 //               {(project.services || []).map((service: string) => (
 //                 <span 
 //                   key={service} 
@@ -372,8 +61,8 @@
 //               ))}
 //             </motion.div>
             
-//             {/* Dynamic Hero Title - Tight leading and massive font */}
-//             <motion.h1 variants={fadeUpVariant} className="text-3xl font-black tracking-tight text-[#0f172a] md:text-4xl lg:text-[2rem] leading-[1.05]">
+//             {/* Dynamic Hero Title - Adjusted to be smaller and flow full width */}
+//             <motion.h1 variants={fadeUpVariant} className="text-3xl font-extrabold tracking-tight text-[#0f172a] md:text-4xl lg:text-5xl leading-[1.2]">
 //               {project.heroPreTitle}
 //               {project.heroHighlight && (
 //                 <span className="text-[#6495ED]"> {project.heroHighlight} </span>
@@ -381,15 +70,15 @@
 //               {project.heroPostTitle}
 //             </motion.h1>
             
-//             {/* Dynamic Description */}
-//             <motion.p variants={fadeUpVariant} className="mt-8 max-w-3xl text-lg md:text-xl font-medium text-slate-600 leading-relaxed">
+//             {/* Dynamic Description - Removed max-w-3xl constraint and reduced text size */}
+//             <motion.p variants={fadeUpVariant} className="mt-6 w-full text-base md:text-lg font-medium text-slate-600 leading-relaxed">
 //               {project.description}
 //             </motion.p>
 //           </motion.div>
 //         </section>
 
 //         {/* 2. SCROLL-REVEAL BANNER SECTION */}
-//         <div className="px-4 md:px-8 mx-auto w-full max-w-[1400px] pb-12">
+//         <div className="px-4 md:px-8 mx-auto w-full max-w-[1600px] pb-12">
 //           {/* Banner transition: fades in and scales up as you scroll to it */}
 //           <motion.section 
 //             initial={{ opacity: 0, scale: 0.95, y: 40 }}
@@ -422,7 +111,6 @@
 //               whileInView={{ opacity: 1, y: 0 }}
 //               viewport={{ once: true }}
 //               transition={{ duration: 0.8 }}
-//               // Removed -mt-24 and z-10 so it cleanly stacks below the banner
 //               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 rounded-[2rem] bg-[#0B1120] p-8 md:p-12 shadow-xl"
 //             >
 //               {project.stats.map((result: any, i: number) => (
@@ -442,7 +130,7 @@
 //         )}
 
 //         {/* 4. CHALLENGE & STRATEGY (KEEPING AS IS) */}
-//         <section className="px-6 py-24 md:py-32">
+//         <section className="px-6 py-20 md:py-20">
 //           <div className="mx-auto max-w-7xl">
 //             {project.challenges && project.challenges.length > 0 && (
 //               <motion.div
@@ -490,9 +178,9 @@
 //           </div>
 //         </section>
 
-//         {/* 5. FEATURED IMAGES */}
+//           {/* 5. FEATURED IMAGES */}
 //         {project.images && project.images.length > 0 && (
-//           <section className="bg-slate-50 px-6 py-24 md:py-32">
+//           <section className="bg-slate-50 px-6 py-14 md:py-12">
 //             <div className="mx-auto max-w-7xl">
 //               <motion.div
 //                 initial={{ opacity: 0, y: 20 }}
@@ -505,17 +193,21 @@
 //               <div className="grid gap-8 md:grid-cols-2">
 //                 {project.images.map((img: any, i: number) => (
 //                   <div key={i} className="flex flex-col gap-4">
-//                     <div className="aspect-video w-full rounded-3xl overflow-hidden bg-slate-200 flex items-center justify-center border border-slate-300">
+//                     {/* Removed aspect-video, border, and background color */}
+//                     <div className="w-full rounded-3xl overflow-hidden flex items-center justify-center">
 //                       {img.url ? (
 //                         <Image
 //                           src={img.url}
 //                           alt={img.title || `Featured work ${i + 1}`}
-//                           width={800}
-//                           height={450}
-//                           className="h-full w-full object-cover"
+//                           width={1200}
+//                           height={1200}
+//                           // Changed to h-auto and object-contain for natural scaling
+//                           className="w-full h-auto object-contain"
 //                         />
 //                       ) : (
-//                         <span className="text-slate-400 font-medium">[ Image Placeholder ]</span>
+//                         <div className="aspect-video w-full flex items-center justify-center bg-slate-200 rounded-3xl">
+//                            <span className="text-slate-400 font-medium">[ Image Placeholder ]</span>
+//                         </div>
 //                       )}
 //                     </div>
 //                     <div>
@@ -554,7 +246,7 @@
 //         )}
 
 //         {/* 7. OUTCOME & LEARNINGS */}
-//         <section className="px-6 py-24 md:py-32">
+//         <section className="px-6 py-14 md:py-10">
 //           <div className="mx-auto max-w-7xl">
 //             <motion.div
 //               initial="hidden"
@@ -618,11 +310,13 @@
 
 "use client";
 
-import { useEffect } from "react";
-import { motion, Variants } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, Variants, AnimatePresence } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import Image from "next/image";
+
+import { Play } from "lucide-react";
 
 // =========================================
 // ANIMATION VARIANTS
@@ -644,6 +338,63 @@ const staggerContainer: Variants = {
   },
 };
 
+// =========================================
+// YOUTUBE VIDEO COMPONENT
+// =========================================
+function YouTubeShowcase({ url }: { url: string }) {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  // Extract YouTube ID from various URL formats
+  const getYouTubeId = (url: string) => {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : null;
+  };
+
+  const videoId = getYouTubeId(url);
+
+  if (!videoId) return null;
+
+  // Fetch the max resolution thumbnail directly from YouTube
+  const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+
+  return (
+    <div 
+      className="relative w-full aspect-video md:aspect-[21/9] bg-[#111] rounded-[2rem] overflow-hidden shadow-2xl border border-slate-200 cursor-pointer group"
+      onClick={() => setIsPlaying(true)}
+    >
+      {!isPlaying ? (
+        <>
+          <Image 
+            src={thumbnailUrl} 
+            alt="Video Thumbnail" 
+            fill 
+            className="object-cover opacity-80 transition-transform duration-700 group-hover:scale-105" 
+            unoptimized 
+          />
+          <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+            <div className="w-16 h-16 md:w-20 md:h-20 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
+              <Play className="w-6 h-6 md:w-8 md:h-8 text-[#6495ED] fill-[#6495ED] ml-1.5" />
+            </div>
+          </div>
+        </>
+      ) : (
+        <iframe
+          className="absolute inset-0 w-full h-full"
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      )}
+    </div>
+  );
+}
+
+// =========================================
+// MAIN TEMPLATE COMPONENT
+// =========================================
 export default function ProjectTemplate({ project }: { project: any }) {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -658,13 +409,11 @@ export default function ProjectTemplate({ project }: { project: any }) {
       <main className="min-h-screen bg-white">
         
         {/* 1. INITIAL TEXT SECTION (Visible on Load) */}
-        {/* Adjusted to max-w-[1400px] to perfectly align with the banner width below */}
         <section className="pt-32 md:pt-44 pb-12 px-4 md:px-8 mx-auto w-full max-w-[1300px] flex flex-col items-start">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
-            // Removed max-w-5xl so the text flows across the entire container width
             className="w-full"
           >
             {/* Dynamic Services Pills */}
@@ -679,7 +428,7 @@ export default function ProjectTemplate({ project }: { project: any }) {
               ))}
             </motion.div>
             
-            {/* Dynamic Hero Title - Adjusted to be smaller and flow full width */}
+            {/* Dynamic Hero Title */}
             <motion.h1 variants={fadeUpVariant} className="text-3xl font-extrabold tracking-tight text-[#0f172a] md:text-4xl lg:text-5xl leading-[1.2]">
               {project.heroPreTitle}
               {project.heroHighlight && (
@@ -688,7 +437,7 @@ export default function ProjectTemplate({ project }: { project: any }) {
               {project.heroPostTitle}
             </motion.h1>
             
-            {/* Dynamic Description - Removed max-w-3xl constraint and reduced text size */}
+            {/* Dynamic Description */}
             <motion.p variants={fadeUpVariant} className="mt-6 w-full text-base md:text-lg font-medium text-slate-600 leading-relaxed">
               {project.description}
             </motion.p>
@@ -697,7 +446,6 @@ export default function ProjectTemplate({ project }: { project: any }) {
 
         {/* 2. SCROLL-REVEAL BANNER SECTION */}
         <div className="px-4 md:px-8 mx-auto w-full max-w-[1600px] pb-12">
-          {/* Banner transition: fades in and scales up as you scroll to it */}
           <motion.section 
             initial={{ opacity: 0, scale: 0.95, y: 40 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -721,7 +469,7 @@ export default function ProjectTemplate({ project }: { project: any }) {
           </motion.section>
         </div>
 
-        {/* 3. RESULTS GRID (NO LONGER OVERLAPPING) */}
+        {/* 3. RESULTS GRID */}
         {project.stats && project.stats.length > 0 && (
           <div className="mx-auto max-w-7xl px-6 md:px-12 pb-12">
             <motion.div 
@@ -733,11 +481,9 @@ export default function ProjectTemplate({ project }: { project: any }) {
             >
               {project.stats.map((result: any, i: number) => (
                 <div key={i} className="flex flex-col">
-                  {/* Stat Number */}
                   <span className="text-3xl font-bold text-[#6495ED] md:text-4xl mb-2">
                     {result.stat}
                   </span>
-                  {/* Stat Description/Label */}
                   <span className="text-base font-medium text-slate-300 leading-snug">
                     {result.label}
                   </span>
@@ -747,7 +493,7 @@ export default function ProjectTemplate({ project }: { project: any }) {
           </div>
         )}
 
-        {/* 4. CHALLENGE & STRATEGY (KEEPING AS IS) */}
+        {/* 4. CHALLENGE & STRATEGY */}
         <section className="px-6 py-20 md:py-20">
           <div className="mx-auto max-w-7xl">
             {project.challenges && project.challenges.length > 0 && (
@@ -796,7 +542,7 @@ export default function ProjectTemplate({ project }: { project: any }) {
           </div>
         </section>
 
-          {/* 5. FEATURED IMAGES */}
+        {/* 5. FEATURED IMAGES */}
         {project.images && project.images.length > 0 && (
           <section className="bg-slate-50 px-6 py-14 md:py-12">
             <div className="mx-auto max-w-7xl">
@@ -811,7 +557,6 @@ export default function ProjectTemplate({ project }: { project: any }) {
               <div className="grid gap-8 md:grid-cols-2">
                 {project.images.map((img: any, i: number) => (
                   <div key={i} className="flex flex-col gap-4">
-                    {/* Removed aspect-video, border, and background color */}
                     <div className="w-full rounded-3xl overflow-hidden flex items-center justify-center">
                       {img.url ? (
                         <Image
@@ -819,7 +564,6 @@ export default function ProjectTemplate({ project }: { project: any }) {
                           alt={img.title || `Featured work ${i + 1}`}
                           width={1200}
                           height={1200}
-                          // Changed to h-auto and object-contain for natural scaling
                           className="w-full h-auto object-contain"
                         />
                       ) : (
@@ -839,7 +583,7 @@ export default function ProjectTemplate({ project }: { project: any }) {
           </section>
         )}
 
-        {/* 6. VIDEO SHOWCASE */}
+        {/* 6. YOUTUBE VIDEO SHOWCASE */}
         {project.videoUrl && (
           <section className="bg-white py-12 md:py-16 px-4 md:px-8">
             <div className="mx-auto max-w-7xl">
@@ -848,16 +592,8 @@ export default function ProjectTemplate({ project }: { project: any }) {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.8 }}
-                className="relative w-full aspect-video md:aspect-[21/9] bg-slate-100 rounded-[2rem] overflow-hidden shadow-xl border border-slate-100"
               >
-                <video
-                  src={project.videoUrl}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="h-full w-full object-cover"
-                />
+                <YouTubeShowcase url={project.videoUrl} />
               </motion.div>
             </div>
           </section>

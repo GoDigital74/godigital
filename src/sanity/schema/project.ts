@@ -497,13 +497,10 @@ export const projectSchema = defineType({
     // ==========================================
     defineField({
       name: "video",
-      title: "Full Width Video",
-      type: "file",
+      title: 'YouTube Video URL',
+      type: "url",
       group: "video",
-      options: {
-        accept: "video/*", // Restricts uploads to video files only
-      },
-      description: "Optional: Upload an MP4 video to be displayed full-width after the Featured Work section. Leave blank to hide this section.",
+      description: "Paste a YouTube video link (e.g., https://www.youtube.com/watch?v=...)",
     }),
 
     // ==========================================

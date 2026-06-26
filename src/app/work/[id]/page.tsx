@@ -14,7 +14,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
   const query = `*[_type == "project" && slug.current == $id][0]{
     ...,
     "bannerImage": bannerImage.asset->url,
-    "videoUrl": video.asset->url,
+    "videoUrl": videoUrl,
     "images": images[]{
       title,
       desc,
