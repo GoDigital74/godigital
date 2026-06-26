@@ -8,6 +8,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { client } from "@/sanity/lib/client";
 
+
 import {
   ArrowRight,
   ArrowUpRight,
@@ -23,6 +24,7 @@ import {
   LineChart,
   LayoutTemplate,
 } from "lucide-react";
+
 
 const fadeUpVariant: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -41,7 +43,7 @@ const staggerContainer: Variants = {
   },
 };
 
-export default function SolutionsRootPage() {
+export default function SolutionsPage() {
     const [projects, setProjects] = useState<any[]>([]);
   
     useEffect(() => {
@@ -98,12 +100,10 @@ export default function SolutionsRootPage() {
 
             {/* Left Content */}
             <div className="w-full lg:w-1/2 flex flex-col justify-center">
-              
-              {/* FIXED BREADCRUMB FOR ROOT ROUTE */}
               <div className="mb-4 sm:mb-6 flex items-center gap-2 text-xs sm:text-sm font-medium text-white/90 animate-[fadeSlideUp_0.8s_ease_0.2s_both]">
-                <Link href="/" className="hover:text-white transition-colors">Home</Link>
+                <Link href="/solutions" className="hover:text-white transition-colors">Solutions</Link>
                 <span>/</span>
-                <span className="text-white">Solutions</span>
+                <span className="text-white">Growth Systems</span>
               </div>
 
               <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-white leading-[1.05] mb-6 animate-[fadeSlideUp_0.8s_ease_0.4s_both]">
@@ -175,7 +175,7 @@ export default function SolutionsRootPage() {
                   <Image src="https://cdn.simpleicons.org/tiktok/FFFFFF" alt="TikTok" width={20} height={20} className="h-5 w-auto object-contain" unoptimized />
                   <Image src="https://cdn.simpleicons.org/googleads" alt="Google Ads" width={40} height={20} className="h-5 w-auto object-contain" unoptimized />
                   <Image src="https://cdn.simpleicons.org/snapchat/FFFC00" alt="Snapchat" width={20} height={20} className="h-5 w-auto object-contain" unoptimized />
-                  <Image src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram" width={20} height={20} className="h-5 w-auto object-contain" unoptimized />
+                  <Image src="https://cdn.simpleicons.org/instagram/E4405F" alt="Snapchat" width={20} height={20} className="h-5 w-auto object-contain" unoptimized />
                   <span className="text-[10px] text-gray-300 font-medium ml-1">& more</span>
                 </div>
               </div>
@@ -280,7 +280,7 @@ export default function SolutionsRootPage() {
                     <Image src="https://cdn.simpleicons.org/googleads" alt="Google Ads" width={40} height={20} className="h-5 w-auto object-contain" unoptimized />
                     <Image src="https://cdn.simpleicons.org/tiktok/FFFFFF" alt="TikTok" width={20} height={20} className="h-5 w-auto object-contain" unoptimized />
                     <Image src="https://cdn.simpleicons.org/youtube/FF0000" alt="YouTube" width={20} height={16} className="h-4 w-auto object-contain" unoptimized />
-                    <Image src="https://cdn.simpleicons.org/x/white" alt="X" width={16} height={16} className="h-4 w-auto object-contain" unoptimized />
+                    <Image src="https://cdn.simpleicons.org/x/white" alt="TikTok" width={16} height={16} className="h-4 w-auto object-contain" unoptimized />
                     <Image src="https://cdn.simpleicons.org/snapchat/FFFC00" alt="Snapchat" width={20} height={20} className="h-5 w-auto object-contain" unoptimized />
                   </div>
                 </div>
@@ -313,7 +313,7 @@ export default function SolutionsRootPage() {
                     <Image src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram" width={20} height={20} className="h-5 w-auto object-contain" unoptimized />
                     <Image src="https://cdn.simpleicons.org/youtube/FF0000" alt="YouTube" width={20} height={16} className="h-4 w-auto object-contain" unoptimized />
                     <Image src="https://cdn.simpleicons.org/facebook/1877F2" alt="Facebook" width={20} height={20} className="h-5 w-auto object-contain" unoptimized />
-                    <Image src="https://cdn.simpleicons.org/pinterest/E60023" alt="Pinterest" width={20} height={20} className="h-5 w-auto object-contain" unoptimized />
+                    <Image src="https://cdn.simpleicons.org/pinterest/E60023" alt="Facebook" width={20} height={20} className="h-5 w-auto object-contain" unoptimized />
                   </div>
                 </div>
 
@@ -338,7 +338,7 @@ export default function SolutionsRootPage() {
                     <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-orange-500/10 text-orange-400 mb-6">
                       <Users className="w-5 h-5" />
                     </div>
-                    <h3 className="text-white font-bold mb-2">Influencer Marketing & UGC</h3>
+                    <h3 className="text-white font-bold mb-2">Influencer Marketing & UGC Creation</h3>
                     <p className="text-sm text-gray-400 leading-relaxed mb-6">Leverage creators and authentic content to build trust and drive conversions.</p>
                   </div>
                   <div className="flex items-center gap-2">
