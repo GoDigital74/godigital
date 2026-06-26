@@ -65,7 +65,7 @@ export function Industries() {
             Deep expertise across verticals.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-gray-400">
-            From boutique hospitality to fast-scaling D2C — we understand the
+            From boutique hospitality to fast-scaling D2C - we understand the
             nuances that drive growth in your category.
           </p>
         </motion.div>

@@ -86,6 +86,7 @@ export const industries = [
   { name: "Jewellery", icon: "💎" },
   { name: "Food & Beverage", icon: "🍽️" },
   { name: "Spiritual Stays", icon: "🕉️" },
+  { name: "Automobile", icon: "🚗" },
 ] as const;
 
 export const insights = [
