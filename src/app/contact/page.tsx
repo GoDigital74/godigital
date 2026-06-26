@@ -15,7 +15,8 @@ import {
   MapPin, 
   Phone,
   Sparkles,
-  AlertCircle
+  AlertCircle,
+
 } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -187,7 +188,7 @@ export default function ContactPage() {
               <FloatingCard icon={<Phone className="w-4 h-4 text-white"/>} label="+91 98765 43210" delay={1} />
             </motion.div>
 
-            {/* LinkedIn Card */}
+           {/* LinkedIn Card */}
             <motion.div style={{ x: floatX2, y: floatY1 }} className="absolute top-[70%] left-[12%] lg:left-[20%] z-20 hidden md:block">
               <FloatingCard 
                 delay={0.6} 
@@ -198,7 +199,24 @@ export default function ContactPage() {
                     <circle cx="4" cy="4" r="2" />
                   </svg>
                 } 
-                label="@godigital" 
+                label="@godigitalagencyy" 
+                href="https://www.linkedin.com/company/go-digital-agencyy/"
+              />
+            </motion.div>
+
+            {/* Instagram Card */}
+            <motion.div style={{ x: floatX1, y: floatY2 }} className="absolute top-[75%] right-[15%] lg:right-[22%] z-20 hidden md:block">
+              <FloatingCard 
+                delay={0.8} 
+                icon={
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-white">
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                  </svg>
+                } 
+                label="@go_digital_agency.in" 
+                href="https://www.instagram.com/go_digital_agency.in"
               />
             </motion.div>
 
@@ -302,19 +320,17 @@ export default function ContactPage() {
                 )}
               </div>
             </div>
-
           </div>
         </section>
-
       </main>
       <Footer />
     </ReactLenis>
   );
 }
 
-function FloatingCard({ delay, top, left, right, icon, label }: { delay: number, top?: string, left?: string, right?: string, icon: React.ReactNode, label: string }) {
-  return (
-    <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl animate-[float_4s_ease-in-out_infinite] hover:bg-white/10 transition-colors" style={{ top, left, right, animationDelay: `${delay}s` }}>
+function FloatingCard({ delay, top, left, right, icon, label, href }: { delay: number, top?: string, left?: string, right?: string, icon: React.ReactNode, label: string, href?: string }) {
+  const CardContent = (
+    <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl animate-[float_4s_ease-in-out_infinite] hover:bg-white/10 transition-colors pointer-events-auto" style={{ top, left, right, animationDelay: `${delay}s` }}>
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes float {
           0%, 100% { transform: translateY(0px); }
@@ -327,4 +343,14 @@ function FloatingCard({ delay, top, left, right, icon, label }: { delay: number,
       <span className="text-white/90 text-xs font-medium">{label}</span>
     </div>
   );
+
+  if (href) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className="block cursor-pointer hover:scale-105 transition-transform pointer-events-auto">
+        {CardContent}
+      </a>
+    );
+  }
+
+  return CardContent;
 }

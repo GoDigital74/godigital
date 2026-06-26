@@ -9,26 +9,6 @@ export const navLinks = [
 
 
 export const partnersList = [
-  { id: 1, name: "Partner 1", logo: "/alllogo/1.jpg" },
-  { id: 2, name: "Partner 2", logo: "/alllogo/2.jpg" },
-  { id: 3, name: "Partner 3", logo: "/alllogo/3.jpg" },
-  { id: 4, name: "Partner 4", logo: "/alllogo/4.jpg" },
-  { id: 5, name: "Partner 5", logo: "/alllogo/5.jpg" },
-  { id: 6, name: "Partner 6", logo: "/alllogo/6.jpg" },
-  { id: 7, name: "Partner 7", logo: "/alllogo/7.jpg" },
-  { id: 8, name: "Partner 8", logo: "/alllogo/8.jpg" },
-  { id: 9, name: "Partner 9", logo: "/alllogo/9.jpg" },
-  { id: 10, name: "Partner 10", logo: "/alllogo/10.jpg" },
-  { id: 11, name: "Partner 11", logo: "/alllogo/11.jpg" },
-  { id: 12, name: "Partner 12", logo: "/alllogo/12.jpg" },
-  { id: 13, name: "Partner 13", logo: "/alllogo/13.jpg" },
-  { id: 14, name: "Partner 14", logo: "/alllogo/14.jpg" },
-  { id: 15, name: "Partner 15", logo: "/alllogo/15.jpg" },
-  { id: 16, name: "Partner 16", logo: "/alllogo/16.jpg" },
-  { id: 17, name: "Partner 17", logo: "/alllogo/17.jpg" },
-   { id: 18, name: "Partner 18", logo: "/alllogo/18.jpg" },
-  { id: 19, name: "Partner 19", logo: "/alllogo/19.jpg" },
-  { id: 20, name: "Partner 20", logo: "/alllogo/20.jpg" },
 ]  as const;
 
 export const partners = [

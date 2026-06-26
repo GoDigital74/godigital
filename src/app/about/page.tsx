@@ -109,15 +109,6 @@ export default function AboutPage() {
                 At Go Digital, we combine strategy, creativity and performance to build
                 systems that attract, convert and scale for brands that aim higher.
               </motion.p>
-
-              {/* <motion.div variants={fadeUpVariant} className="mt-12">
-                <button className="group flex items-center gap-4 text-sm font-bold text-white transition-colors hover:text-[#6495ED]">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 transition-all group-hover:border-[#6495ED]">
-                    <ArrowUpRight className="h-5 w-5" />
-                  </span>
-                  Our Story
-                </button>
-              </motion.div> */}
             </motion.div>
           </div>
         </section>

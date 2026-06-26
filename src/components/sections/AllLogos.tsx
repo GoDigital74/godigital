@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { partnersList } from "@/lib/data"; 
+ import { partnersList } from "@/lib/data"; 
 
 // Define the shape of the data coming from Sanity
 type SanityPartner = {
