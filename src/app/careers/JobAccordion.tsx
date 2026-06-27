@@ -39,7 +39,7 @@ export function JobAccordion({ jobs }: { jobs: Job[] }) {
         // Formats the email subject so it says "Job Application: Senior Frontend Developer"
         const emailSubject = encodeURIComponent(`Job Application: ${job.title}`);
         // Replace with your actual careers/HR email address
-        const applyLink = `mailto:130prashant@gmail.com?subject=${emailSubject}`;
+        const applyLink = `mailto:godigital74@gmail.com?subject=${emailSubject}`;
 
         return (
           <div
