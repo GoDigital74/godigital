@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { TransitionLink } from "@/components/layout/PageTransition";
+import Link from "next/link";
 import { ArrowRight, ChevronDown, BarChart3, Target, TrendingUp, ShieldCheck, LineChart } from "lucide-react";
 import Image from "next/image";
 
@@ -311,13 +311,13 @@ export default function WorkClient({ initialCaseStudies }: { initialCaseStudies:
                         </div>
                       )}
 
-                      <TransitionLink 
+                      <Link 
                         href={`/work/${study.id}`} 
                         className="mt-8 flex items-center justify-between text-sm font-semibold text-gray-300 transition-colors group-hover:text-white"
                       >
                         View Case Study
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:text-[#6495ED]" />
-                      </TransitionLink>
+                      </Link>
                     </div>
                   </motion.div>
                 ))}
@@ -367,13 +367,13 @@ export default function WorkClient({ initialCaseStudies }: { initialCaseStudies:
               </div>
             </div>
             
-            <TransitionLink 
+            <Link 
               href="/contact"
               className="group flex shrink-0 items-center gap-2 rounded-xl bg-white px-8 py-4 text-sm font-bold text-[#0A0A0A] transition-all hover:bg-gray-200"
             >
               Start Your Project
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </TransitionLink>
+            </Link>
           </div>
         </section>
 

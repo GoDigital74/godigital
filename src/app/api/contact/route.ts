@@ -1,8 +1,6 @@
-// src/app/api/contact/route.ts
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-// Initialize Resend with your API Key
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
@@ -10,13 +8,9 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { firstName, lastName, email, message } = body;
 
-    // Send the email
     const data = await resend.emails.send({
-      // IMPORTANT: Resend requires a verified domain to send FROM. 
-      // While testing, you can use their testing email: 'onboarding@resend.dev'RESEND_API_KEY="re_QZzWPn4d_4T2XZ4Lwd8jsBKzpjpdh4efc"
       from: 'Acme <onboarding@resend.dev>', 
-      // Deliver the email TO yourself
-      to: ['prashantextra2003@gmail.com'], // <--- CHANGE THIS TO YOUR ACTUAL EMAIL
+      to: ['godigital74@gmail.com'], 
       subject: `New Project Inquiry from ${firstName} ${lastName}`,
       html: `
         <h2>New Contact Request</h2>

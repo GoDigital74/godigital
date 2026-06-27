@@ -1,5 +1,4 @@
 import { client } from "@/sanity/lib/client";
-import { Check } from "lucide-react"; 
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { JobAccordion } from "./JobAccordion";

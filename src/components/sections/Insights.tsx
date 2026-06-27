@@ -4,7 +4,7 @@ import { useRef, useEffect } from "react";
 import { motion, Variants } from "framer-motion";
 import { ArrowUpRight, ChevronRight, ChevronLeft } from "lucide-react";
 import Image from "next/image";
-import { TransitionLink } from "@/components/layout/PageTransition";
+import Link from "next/link";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -88,7 +88,7 @@ function InsightTiltCard({ post }: { post: any }) {
       style={{ willChange: "transform, opacity" }}
       className="h-full"
     >
-      <TransitionLink href={`/insights/${post.slug}`} className="block h-full w-full">
+      <Link href={`/insights/${post.slug}`} className="block h-full w-full">
         <div
           ref={cardRef}
           onMouseMove={handleMove}
@@ -145,7 +145,7 @@ function InsightTiltCard({ post }: { post: any }) {
             </div>
           </div>
         </div>
-      </TransitionLink>
+      </Link>
     </motion.div>
   );
 }
@@ -187,13 +187,13 @@ export function Insights({ posts = [] }: { posts?: any[] }) {
              </h2>
           </div>
 
-          <TransitionLink
+          <Link
             href="/insights"
             className="group inline-flex items-center gap-2 text-sm font-semibold text-white transition-colors hover:text-[#6495ED]"
           >
             View All Insights
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-          </TransitionLink>
+          </Link>
         </motion.div>
 
         {displayPosts.length === 0 ? (

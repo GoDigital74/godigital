@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, ChevronUp, MapPin, Clock, Briefcase, FileText, Mail } from "lucide-react";
+import { ChevronDown, ChevronUp, MapPin, Clock, Briefcase, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface Job {

@@ -4,7 +4,7 @@ import { useRef, useEffect } from "react";
 import { motion, Variants } from "framer-motion";
 import { ArrowRight, ChevronRight, ChevronLeft } from "lucide-react";
 import Image from "next/image";
-import { TransitionLink } from "@/components/layout/PageTransition";
+import Link from "next/link";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -108,7 +108,7 @@ function TiltCard({
       style={{ willChange: "transform, opacity" }}
       className="h-full w-full"
     >
-      <TransitionLink href={href} className="block h-full w-full">
+      <Link href={href} className="block h-full w-full">
         <div
           ref={cardRef}
           onMouseMove={handleMove}
@@ -180,7 +180,7 @@ function TiltCard({
             </div>
           </div>
         </div>
-      </TransitionLink>
+      </Link>
     </motion.div>
   );
 }
@@ -295,13 +295,13 @@ export function FeaturedWork({ projects = [] }: { projects?: Project[] }) {
               transition={{ delay: 0.4 }}
               className="mt-2 flex justify-end"
             >
-              <TransitionLink
+              <Link
                 href="/work"
                 className="group flex items-center gap-2 text-[13px] font-bold uppercase tracking-wide text-[#0A0A0A] transition-colors hover:text-[#6495ED]"
               >
                 View All Work
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2.5} />
-              </TransitionLink>
+              </Link>
             </motion.div>
           </div>
           

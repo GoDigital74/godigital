@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Instrument_Serif, Sora } from "next/font/google";
-import { PageTransitionProvider } from "@/components/layout/PageTransition";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import "./globals.css";
 
@@ -28,9 +27,41 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
-  title: "GoDigital | Digital Marketing Agency",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://Godigitalagency.in"),
+  title: {
+    default: "GoDigital | Digital Marketing Agency",
+    template: "%s | GoDigital",
+  },
   description:
     "We build brands that people remember. Strategy, creativity, and growth for ambitious businesses.",
+  keywords: ["digital marketing", "branding", "agency", "growth", "strategy", "SEO", "web development", "design"],
+  authors: [{ name: "GoDigital Agency" }],
+  creator: "GoDigital",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "/",
+    title: "GoDigital | Digital Marketing Agency",
+    description: "We build brands that people remember. Strategy, creativity, and growth for ambitious businesses.",
+    siteName: "GoDigital",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "GoDigital | Digital Marketing Agency",
+    description: "We build brands that people remember. Strategy, creativity, and growth for ambitious businesses.",
+    creator: "@godigital",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -53,11 +84,10 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} ${sora.variable} h-full antialiased`}
-    >
-      
+    >      
       <body className="min-h-full bg-background text-foreground overflow-x-hidden selection:bg-[#6495ED] selection:text-white">
         <SmoothScroll>
-          <PageTransitionProvider>{children}</PageTransitionProvider>
+          {children}
         </SmoothScroll>
       </body>
     </html>

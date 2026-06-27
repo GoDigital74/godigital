@@ -4,7 +4,7 @@ import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { footerLinks, footerSocials } from "@/lib/data";
-import { TransitionLink } from "@/components/layout/PageTransition";
+import Link from "next/link";
 
 // Helper component to render official brand SVGs based on the label name
 function BrandIcon({ label, abbr }: { label: string; abbr: string }) {
@@ -129,13 +129,13 @@ export function Footer() {
               {/* Nav Links */}
               <nav className="footer-animate flex flex-wrap justify-center gap-8">
                 {footerLinks.map((link) => (
-                  <TransitionLink
+                  <Link
                     key={link.href}
                     href={link.href}
                     className="text-sm font-medium text-gray-600 transition-colors hover:text-[#6495ED]"
                   >
                     {link.label}
-                  </TransitionLink>
+                  </Link>
                 ))}
               </nav>
 
