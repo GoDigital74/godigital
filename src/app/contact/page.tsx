@@ -181,11 +181,11 @@ export default function ContactPage() {
           >
             {/* Floating Glass Cards */}
             <motion.div style={{ x: floatX1, y: floatY1 }} className="absolute top-[30%] left-[20%] lg:left-[28%] z-20 hidden md:block">
-              <FloatingCard icon={<Mail className="w-4 h-4 text-white"/>} label="hello@godigital.com" delay={0} />
+              <FloatingCard icon={<Mail className="w-4 h-4 text-white"/>} label="godigital74@gmail.com" delay={0} />
             </motion.div>
             
             <motion.div style={{ x: floatX2, y: floatY2 }} className="absolute top-[50%] right-[20%] lg:right-[28%] z-20 hidden md:block">
-              <FloatingCard icon={<Phone className="w-4 h-4 text-white"/>} label="+91 98765 43210" delay={1} />
+              <FloatingCard icon={<Phone className="w-4 h-4 text-white"/>} label="+91 8076625588" delay={1} />
             </motion.div>
 
            {/* LinkedIn Card */}
@@ -249,7 +249,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 font-medium mb-1">Email Us</p>
-                    <p className="text-lg font-semibold text-white">hello@godigital.com</p>
+                    <p className="text-lg font-semibold text-white">godigital74@gmail.com</p>
                   </div>
                 </div>
                 

@@ -1,5 +1,3 @@
-
-
 import { defineType, defineField, defineArrayMember } from "sanity";
 
 export const projectSchema = defineType({
