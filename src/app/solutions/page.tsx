@@ -123,7 +123,7 @@ export default function SolutionsRootPage() {
                   Let's Grow Together <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
-                  href="#work"
+                  href="/work"
                   className="inline-flex items-center gap-2 text-white font-medium text-sm hover:text-[#6495ED] transition-colors"
                 >
                   See Our Work <ArrowUpRight className="w-4 h-4" />
