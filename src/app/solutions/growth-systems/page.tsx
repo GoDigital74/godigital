@@ -192,8 +192,8 @@ export default function SolutionsPage() {
             </div>
             <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16 text-white font-serif text-xl">
               <span>Raymond</span>
-              <span>STAR VEDA+</span>
-              <span>Omji</span>
+              <span>Sethi Watch Company</span>
+              <span>Titan Eye+</span>
               <span className="font-sans font-black tracking-tighter">WILD STONE</span>
               <span className="text-sm font-sans font-bold border border-white px-2 py-1">The Pink<br/>Foundry</span>
               <span className="text-sm font-sans">& more</span>
