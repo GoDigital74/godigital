@@ -1,50 +1,55 @@
 import { MetadataRoute } from 'next'
+import { client } from '@/sanity/lib/client'; // Import your Sanity Client
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://Godigitalagency.in'
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://godigitalagency.in'
 
+  // 1. Fetch dynamic routes from Sanity
+  // Adjust the _type to match whatever you named your blog schema (e.g., "post", "insight")
+  const query = `
+    {
+      "projects": *[_type == "project"] { "slug": slug.current },
+      "insights": *[_type == "insight"] { "slug": slug.current } 
+    }
+  `;
+  const { projects, insights } = await client.fetch(query);
+
+  const projectRoutes = projects.map((project: any) => ({
+    url: `${baseUrl}/work/${project.slug}`,
+    lastModified: new Date(),
+    priority: 0.8,
+  }));
+
+  const insightRoutes = insights.map((post: any) => ({
+    url: `${baseUrl}/insights/${post.slug}`,
+    lastModified: new Date(),
+    priority: 0.7,
+  }));
+
+  // 2. Define static routes (Added your new nested solution pages!)
+  const staticPaths = [
+    '', 
+    '/about', 
+    '/work', 
+    '/solutions', 
+    '/solutions/growth-systems',
+    '/solutions/commerce-systems',
+    '/solutions/brand-systems',
+    '/insights', 
+    '/careers', 
+    '/contact'
+  ];
+
+  const staticRoutes = staticPaths.map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date(),
+    priority: route === '' ? 1 : 0.8,
+  }));
+
+  // 3. Combine static and dynamic routes
   return [
-    {
-      url: `${baseUrl}`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/work`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/solutions`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/insights`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/careers`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.5,
-    },
+    ...staticRoutes,
+    ...projectRoutes,
+    ...insightRoutes,
   ]
 }
