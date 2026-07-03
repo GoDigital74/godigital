@@ -65,7 +65,7 @@ export default function AboutPage() {
           {/* Background Image */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/about/about-banner.png"
+              src="/about/about-banner.webp"
               alt="Go Digital Team"
               fill
               priority

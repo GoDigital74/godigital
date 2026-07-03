@@ -132,7 +132,7 @@ export default function WorkClient({ initialCaseStudies }: { initialCaseStudies:
                   <div className="relative h-[450px] w-[350px] overflow-hidden rounded-[3rem] bg-gradient-to-b from-gray-100 to-gray-200 shadow-2xl border border-gray-200">
                     
                     <Image 
-                      src="/header/workbanner.png"
+                      src="/header/workbanner.webp"
                       alt="Work case studies presentation"
                       fill
                       priority

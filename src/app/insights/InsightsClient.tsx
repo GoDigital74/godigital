@@ -70,7 +70,7 @@ export default function InsightsClient({
   {/* Background Image */}
   <div className="absolute inset-0 z-0">
     <Image
-      src="/insights/insights-bg.png"
+      src="/insights/insights-bg.webp"
       alt="Insights Background"
       fill
       priority

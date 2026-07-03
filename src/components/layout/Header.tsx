@@ -156,7 +156,7 @@ export function Header() {
                                 >
                                   <div className="relative aspect-square w-full overflow-visible bg-transparent transition-all duration-500">
                                     <Image
-                                      src="/header/img1.png"
+                                      src="/header/img1.webp"
                                       alt="The Real Reason Most D2C Brands Burn Money"
                                       fill
                                       className="rounded-xl object-contain transition-transform duration-700 group-hover/card:scale-105 group-hover/card:drop-shadow-2xl"
@@ -171,7 +171,7 @@ export function Header() {
                                 >
                                   <div className="relative aspect-square w-full overflow-visible bg-transparent transition-all duration-500">
                                     <Image
-                                      src="/header/img2.png"
+                                      src="/header/img2.webp"
                                       alt="Why Performance Marketing Alone Can't Build a Brand Anymore"
                                       fill
                                       className="rounded-xl object-contain transition-transform duration-700 group-hover/card:scale-105 group-hover/card:drop-shadow-2xl"
