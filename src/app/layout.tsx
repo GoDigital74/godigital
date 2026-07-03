@@ -67,9 +67,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "/",
-    title: "GoDigital | Digital Marketing Agency",
+    title: "GoDigital | Performance & Brand Growth Agency",
     description:
-      "We build brands that people remember. Strategy, creativity, and growth for ambitious businesses.",
+      "Digital ecosystems engineered for scale. GoDigital combines paid media, Shopify development, and brand strategy to drive real, measurable impact.",
     siteName: "GoDigital",
     images: [
       {
@@ -82,9 +82,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "GoDigital | Digital Marketing Agency",
+    title: "GoDigital | Performance & Brand Growth Agency",
     description:
-      "We build brands that people remember. Strategy, creativity, and growth for ambitious businesses.",
+      "Digital ecosystems engineered for scale. GoDigital combines paid media, Shopify development, and brand strategy to drive real, measurable impact.",
     creator: "@godigital",
     images: ["/og-image.jpg"], // Added Twitter Image
   },
