@@ -5,8 +5,8 @@ import { ReactLenis } from "@studio-freight/react-lenis";
 import { motion, useTransform, useSpring, useMotionValue } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Header } from "@/components/layout/Header"; 
-import { Footer } from "@/components/layout/Footer"; 
+// import { Header } from "@/components/layout/Header"; 
+// import { Footer } from "@/components/layout/Footer"; 
 import Spline from '@splinetool/react-spline';
 import { 
   Send, 
@@ -123,7 +123,7 @@ export default function ContactPage() {
 
   return (
     <ReactLenis root options={{ lerp: 0.08, smoothWheel: true }}>
-      <Header />
+      {/* <Header /> */}
       
       <main 
         className="min-h-screen bg-black overflow-hidden font-sans selection:bg-[#79C267] selection:text-white"
@@ -323,7 +323,7 @@ export default function ContactPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </ReactLenis>
   );
 }

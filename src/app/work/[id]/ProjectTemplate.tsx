@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { motion, Variants, AnimatePresence } from "framer-motion";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
+// import { Header } from "@/components/layout/Header";
+// import { Footer } from "@/components/layout/Footer";
 import Image from "next/image";
 
 import { Play } from "lucide-react";
@@ -105,7 +105,7 @@ export default function ProjectTemplate({ project }: { project: any }) {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
 
       <main className="min-h-screen bg-white">
         
@@ -358,7 +358,7 @@ export default function ProjectTemplate({ project }: { project: any }) {
           </section>
         )}
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

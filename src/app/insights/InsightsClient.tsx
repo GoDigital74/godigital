@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
+// import { Header } from "@/components/layout/Header";
+// import { Footer } from "@/components/layout/Footer";
 import { ArrowRight, ChevronDown, BarChart3, Target, TrendingUp, ShieldCheck, LineChart, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -61,7 +61,7 @@ export default function InsightsClient({
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <main className="min-h-screen bg-[#FAFAFA]">         
 
 {/* 1. HERO SECTION */}
@@ -324,7 +324,7 @@ export default function InsightsClient({
         </section>
 
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
-import { Footer } from "@/components/layout/Footer";
-import { Header } from "@/components/layout/Header";
+// import { Footer } from "@/components/layout/Footer";
+// import { Header } from "@/components/layout/Header";
 import { client } from "@/sanity/lib/client";
 
 
@@ -69,7 +69,7 @@ export default function SolutionsPage() {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <main className="min-h-screen bg-white">
 
         {/* ========================================= */}
@@ -527,7 +527,7 @@ export default function SolutionsPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

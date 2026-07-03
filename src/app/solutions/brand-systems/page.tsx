@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
-import { Footer } from "@/components/layout/Footer";
-import { Header } from "@/components/layout/Header";
+// import { Footer } from "@/components/layout/Footer";
+// import { Header } from "@/components/layout/Header";
 import { client } from "@/sanity/lib/client";
 
 import {
@@ -62,7 +62,7 @@ export default function BrandSystemsPage() {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <main className="min-h-screen bg-white">
         {/* 1. HERO SECTION */}
         <section className="relative min-h-screen w-full overflow-hidden bg-black font-sans">
@@ -627,7 +627,7 @@ export default function BrandSystemsPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

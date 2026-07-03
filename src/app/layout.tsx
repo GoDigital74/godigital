@@ -3,6 +3,8 @@ import { Geist, Geist_Mono, Instrument_Serif, Sora } from "next/font/google";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
@@ -145,8 +147,11 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full bg-background text-foreground overflow-x-hidden selection:bg-[#6495ED] selection:text-white">
+         
+          <Header />
         <SmoothScroll>
           {children}
+          <Footer />
           <Analytics />
           <SpeedInsights />
         </SmoothScroll>

@@ -1,6 +1,6 @@
 import { client } from "@/sanity/lib/client";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
+// import { Header } from "@/components/layout/Header";
+// import { Footer } from "@/components/layout/Footer";
 import { JobAccordion } from "./JobAccordion";
 import Image from "next/image";
 import Particles from "@/components/Particles";
@@ -28,7 +28,7 @@ export default async function CareersPage() {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <main className="min-h-screen bg-white pb-24">
         {/* ========================================= */}
         {/* HERO SECTION (DARK BANNER WITH PARTICLES) */}
@@ -181,7 +181,7 @@ export default async function CareersPage() {
           </div>
         </section>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

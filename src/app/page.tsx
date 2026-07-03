@@ -1,5 +1,5 @@
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
+// import { Header } from "@/components/layout/Header";
+// import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { LogoWall } from "@/components/sections/LogoWall";
 import { FeaturedWork } from "@/components/sections/FeaturedWork";
@@ -65,7 +65,7 @@ export default async function HomePage() {
   return (
     <>
       <div className="relative z-10 bg-[#f8fafc]">
-        <Header />
+        {/* <Header /> */}
         <main>
           <Hero />
           <FeaturedWork projects={featuredProjects} /> 
@@ -78,7 +78,7 @@ export default async function HomePage() {
           <FinalCTA />
         </main>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

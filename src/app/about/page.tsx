@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
+// import { Header } from "@/components/layout/Header";
+// import { Footer } from "@/components/layout/Footer";
 import { ArrowRight, ArrowUpRight, Quote } from "lucide-react";
 import Link from "next/link";
 import { client } from "@/sanity/lib/client";
@@ -53,7 +53,7 @@ export default function AboutPage() {
 
   return (
     <>
-      <Header />
+   
       
       <main className="min-h-screen bg-[#F8FAFC]">
         
@@ -406,7 +406,7 @@ export default function AboutPage() {
           </div>
         </section>
       </main>
-      <Footer />
+     
     </>
   );
 }

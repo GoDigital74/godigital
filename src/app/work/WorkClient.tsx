@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
+// import { Header } from "@/components/layout/Header";
+// import { Footer } from "@/components/layout/Footer";
 import Link from "next/link";
 import { ArrowRight, ChevronDown, BarChart3, Target, TrendingUp, ShieldCheck, LineChart } from "lucide-react";
 import Image from "next/image";
@@ -79,7 +79,7 @@ export default function WorkClient({ initialCaseStudies }: { initialCaseStudies:
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <main className="min-h-screen bg-[#0A0A0A] pb-24">
         
         {/* HERO SECTION WITH WHITE BACKGROUND */}
@@ -378,7 +378,7 @@ export default function WorkClient({ initialCaseStudies }: { initialCaseStudies:
         </section>
 
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
