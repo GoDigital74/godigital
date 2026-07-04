@@ -35,7 +35,7 @@ export function WhyUs() {
   return (
     <section
       // Applied the exact dark gradient background
-      className="section-padding relative overflow-hidden bg-gradient-to-b from-[#0A0A0A] to-[#111827]"
+      className="py-6 md:py-16 relative overflow-hidden bg-gradient-to-b from-[#0A0A0A] to-[#111827]"
     >
       {/* Subtle blue accent glow on the right side */}
       <div className="pointer-events-none absolute right-0 top-0 h-full w-1/2 bg-gradient-to-l from-[#6495ED]/5 to-transparent" />
@@ -49,10 +49,10 @@ export function WhyUs() {
           transition={{ duration: 0.7 }}
           className="mb-16 max-w-2xl"
         >
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#6495ED]">
+          <p className="text-md font-semibold uppercase tracking-[0.2em] text-[#6495ED]">
             Why Brands Work With Us
           </p>
-          <h2 className="mt-4 text-4xl font-bold tracking-tight text-white md:text-5xl">
+          <h2 className="mt-2 text-3xl font-bold tracking-tight text-white md:text-5xl">
             One partner. Every capability.
           </h2>
         </motion.div>
@@ -63,7 +63,7 @@ export function WhyUs() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
-          className="grid gap-6 md:grid-cols-2"
+          className="px-2 sm:px-4 lg:px-8 grid gap-4 md:grid-cols-2"
         >
           {whyUs.map((item, i) => (
             <motion.div

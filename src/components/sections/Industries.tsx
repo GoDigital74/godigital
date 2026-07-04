@@ -36,9 +36,9 @@ export function Industries() {
     <section
       id="industries"
       // Section background set to pure dark
-      className="section-padding bg-[#0A0A0A]"
+      className="py-10 md:py-16 bg-[#0A0A0A]"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-6xl">
         {/* Section Heading Module matching FeaturedWork scroll reveal */}
         <motion.div
           initial={{
@@ -56,16 +56,16 @@ export function Industries() {
           transition={{
             duration: 0.7,
           }}
-          className="mb-16 text-center"
+          className="mb-10 text-center"
         >
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#6495ED]">
+          <p className="text-md font-semibold uppercase tracking-[0.2em] text-[#6495ED]">
             Industries
           </p>
-          <h2 className="mt-4 text-4xl font-bold tracking-tight text-white md:text-5xl">
+          <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
             Deep expertise across verticals.
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-gray-400">
-            From boutique hospitality to fast-scaling D2C - we understand the
+          <p className="mx-auto mt-4 max-w-5xl text-gray-300">
+            From boutique hospitality to fast scaling D2C - we understand the
             nuances that drive growth in your category.
           </p>
         </motion.div>
@@ -79,7 +79,7 @@ export function Industries() {
             once: true,
             amount: 0.15,
           }}
-          className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4"
+          className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 px-6 sm:px-6 lg:px-8"
         >
           {industries.map((industry, i) => (
             <motion.div

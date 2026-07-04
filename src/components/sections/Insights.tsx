@@ -170,7 +170,7 @@ export function Insights({ posts = [] }: { posts?: any[] }) {
   };
 
   return (
-    <section className="relative bg-[#0A0A0A] px-6 py-14 md:py-32 overflow-hidden">
+    <section className="relative bg-[#0A0A0A] px-6 py-10 md:py-24 overflow-hidden">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -181,15 +181,15 @@ export function Insights({ posts = [] }: { posts?: any[] }) {
         >
           {/* Updated Header Section */}
           <div className="flex flex-col gap-2">
-             <span className="text-sm font-bold uppercase tracking-widest text-[#6495ED]">Latest Insights</span>
-             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
+             <span className="text-md font-bold uppercase tracking-widest text-[#6495ED]">Latest Insights</span>
+             <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
                Ideas. Trends. Perspectives.
              </h2>
           </div>
 
           <Link
             href="/insights"
-            className="group inline-flex items-center gap-2 text-sm font-semibold text-white transition-colors hover:text-[#6495ED]"
+            className="group inline-flex items-center gap-2 text-md font-semibold text-white transition-colors hover:text-[#6495ED]"
           >
             View All Insights
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
