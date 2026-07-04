@@ -70,7 +70,7 @@ export function Footer() {
             ease: "power3.out",
             scrollTrigger: {
               trigger: containerRef.current,
-              start: "top 80%",
+              start: "top 90%",
               toggleActions: "play none none reverse",
             },
           }
@@ -140,8 +140,10 @@ export function Footer() {
               </nav>
 
               {/* Copyright */}
-              <div className="footer-animate text-center text-xs text-gray-500 md:text-right">
-                <p>Proudly created in India.</p>
+              <div className="footer-animate text-center text-md text-gray-600 md:text-right">
+                <p className="flex items-center justify-center gap-1.5 md:justify-end">
+                  Built with <span className="text-[#6495ED] text-xl">♥</span> in India.
+                </p>
                 <p className="mt-1">
                   © {new Date().getFullYear()} GoDigital. All Rights Reserved.
                 </p>
