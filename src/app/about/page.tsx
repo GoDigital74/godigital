@@ -75,7 +75,7 @@ export default function AboutPage() {
           </div>
 
           {/* Content */}
-          <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-6">
+          <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-4 md:px-0.5">
             <motion.div
               initial="hidden"
               animate="visible"
@@ -84,7 +84,7 @@ export default function AboutPage() {
             >
               <motion.p
                 variants={fadeUpVariant}
-                className="mb-8 text-xs font-bold uppercase tracking-[0.2em] text-[#6495ED]"
+                className="mb-9 text-xl font-bold uppercase tracking-[0.2em] text-[#6495ED]"
               >
                 About Us
               </motion.p>
@@ -99,12 +99,12 @@ export default function AboutPage() {
                   what moves
                 </span>
                 <br />
-                brands forward.
+                brands forward
               </motion.h1>
 
               <motion.p
                 variants={fadeUpVariant}
-                className="mt-8 max-w-md text-base leading-relaxed text-gray-400 md:text-lg"
+                className="mt-5 max-w-xl text-base leading-relaxed text-gray-400 md:text-lg"
               >
                 At Go Digital, we combine strategy, creativity and performance to build
                 systems that attract, convert and scale for brands that aim higher.
@@ -129,7 +129,7 @@ export default function AboutPage() {
               {/* Left Sidebar Title */}
               <motion.div variants={fadeUpVariant} className="w-full lg:w-2/12 shrink-0 lg:self-start lg:pt-4">
                 <div className="border-l border-gray-300 pl-4">
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-[#6495ED]">
+                  <h3 className="text-md font-bold uppercase tracking-widest text-[#6495ED]">
                     Our <br /> Philosophy
                   </h3>
                 </div>
@@ -137,7 +137,7 @@ export default function AboutPage() {
 
               {/* Middle Content - Heading */}
               <motion.div variants={fadeUpVariant} className="w-full lg:w-3/12 shrink-0">
-                <h2 className="text-4xl md:text-[2.75rem] font-bold tracking-tight text-[#0A0A0A] leading-[1.1]">
+                <h2 className="text-3xl md:text-[2.75rem] font-bold tracking-tight text-[#0A0A0A] leading-[1.1]">
                   Most agencies <br /> sell services. <br />
                   We build <br />
                   <span className="font-serif italic text-[#6495ED] font-light">systems.</span>
@@ -147,19 +147,19 @@ export default function AboutPage() {
               {/* Right Content - 4 Horizontal Columns */}
               <motion.div variants={fadeUpVariant} className="w-full lg:w-7/12 flex flex-col md:flex-row items-center gap-8 md:gap-0">
                 <div className="md:w-1/4 w-full md:border-l border-gray-300 md:pl-6 md:pr-4 py-2">
-                  <p className="text-sm font-bold text-[#0A0A0A] leading-snug">A Meta <br /> campaign.</p>
+                  <p className="text-md font-bold text-[#0A0A0A] leading-snug">A Meta <br /> campaign.</p>
                 </div>
                 <div className="md:w-1/4 w-full md:border-l border-gray-300 md:pl-6 md:pr-4 py-2">
-                  <p className="text-sm font-bold text-[#0A0A0A] leading-snug">A Shopify <br /> store.</p>
+                  <p className="text-md font-bold text-[#0A0A0A] leading-snug">A Shopify <br /> store.</p>
                 </div>
                 <div className="md:w-1/4 w-full md:border-l border-gray-300 md:pl-6 md:pr-4 py-2">
-                  <p className="text-sm font-bold text-[#0A0A0A] leading-snug">An SEO <br /> strategy.</p>
+                  <p className="text-md font-bold text-[#0A0A0A] leading-snug">An SEO <br /> strategy.</p>
                 </div>
                 <div className="md:w-1/4 w-full md:border-l border-gray-300 md:pl-6 md:pr-4 py-2">
-                  <p className="text-sm font-medium text-gray-700 leading-snug mb-6">
+                  <p className="text-md font-medium text-gray-700 leading-snug mb-6">
                     Individually they <br /> create activity.
                   </p>
-                  <p className="text-sm font-bold text-[#6495ED] leading-snug">
+                  <p className="text-md font-bold text-[#6495ED] leading-snug">
                     Together they <br /> create growth.
                   </p>
                 </div>
@@ -178,13 +178,13 @@ export default function AboutPage() {
               
               {/* Left Sidebar Content */}
               <motion.div variants={fadeUpVariant} className="md:col-span-4 lg:col-span-3 flex flex-col justify-center">
-                <h3 className="text-xs font-bold uppercase tracking-widest text-[#6495ED] mb-8">
+                <h3 className="text-md font-bold uppercase tracking-widest text-[#6495ED] mb-8">
                   Our Work
                 </h3>
-                <h2 className="text-4xl md:text-5xl font-serif text-white leading-[1.1] mb-6">
+                <h2 className="text-3xl md:text-4xl font-serif text-white leading-[1.1] mb-6">
                   Systems that <br /> create real impact.
                 </h2>
-                <p className="text-sm text-gray-400 mb-10 leading-relaxed font-medium">
+                <p className="text-md text-gray-300 mb-10 leading-relaxed font-medium">
                   Across platforms. Across industries. <br />
                   One purpose - growth.
                 </p>
@@ -275,7 +275,7 @@ export default function AboutPage() {
               {/* Left Sidebar Title */}
               <motion.div variants={fadeUpVariant} className="md:col-span-3">
                 <div className="border-l border-white/20 pl-4">
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-[#6495ED]">
+                  <h3 className="text-md font-bold uppercase tracking-widest text-[#6495ED]">
                     Our Operating <br /> System
                   </h3>
                 </div>
@@ -314,7 +314,7 @@ export default function AboutPage() {
               {/* Left Sidebar Title */}
               <motion.div variants={fadeUpVariant} className="md:col-span-3">
                 <div className="border-l border-gray-300 pl-4">
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-[#6495ED]">
+                  <h3 className="text-md font-bold uppercase tracking-widest text-[#6495ED]">
                     Our Journey
                   </h3>
                 </div>
@@ -376,7 +376,7 @@ export default function AboutPage() {
         {/* ========================================= */}
         {/* 7. FINAL CTA BANNER (DARK) */}
         {/* ========================================= */}
-        <section className="bg-[#F4F4F0] px-6 pb-24">
+        <section className="bg-[#F4F4F0] px-6 pb-14">
           <div className="mx-auto max-w-7xl">
             <motion.div 
               initial={{ opacity: 0, y: 30 }} 
@@ -385,7 +385,7 @@ export default function AboutPage() {
               className="bg-[#0A0A0A] rounded-[2rem] p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12 shadow-2xl"
             >
               <div className="flex-1">
-                <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight">
+                <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
                   Not looking for an agency. <br />
                   Looking for a <span className="font-serif italic text-[#6495ED] font-light">growth partner?</span>
                 </h2>
@@ -406,7 +406,6 @@ export default function AboutPage() {
           </div>
         </section>
       </main>
-     
     </>
   );
 }

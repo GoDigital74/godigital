@@ -83,24 +83,23 @@ export default function InsightsClient({
   <div className="absolute inset-0 z-[1] bg-black/40" />
 
   {/* Content */}
-  <div className="relative z-10 mx-auto flex min-h-[80vh] max-w-7xl items-center px-6">
+  <div className="relative z-10 mx-auto flex min-h-[80vh] max-w-7xl items-center px-6 md:px-4 lg:px-3">
     <div className="max-w-3xl">
-      <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#6495ED]">
+      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#6495ED]">
         The GoDigital Journal
       </p>
 
-      <h1 className="mt-6 text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight text-white">
-        Ideas, strategies &
+      <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-tight text-white">
+        Ideas, strategies & lessons
         <br />
-        lessons that{" "}
+        that{" "}
         <span className="text-[#6495ED]">
-          drive growth.
+          Drive Growth
         </span>
       </h1>
 
-      <p className="mt-8 max-w-md text-base md:text-lg leading-relaxed text-gray-300">
-        Real insights from the trenches of performance,
-        branding, commerce and growth systems.
+      <p className="mt-6 max-w-2xl text-base md:text-lg leading-relaxed text-gray-300">
+        Real insights from the trenches of performance, branding, commerce and<br />growth systems.
       </p>
     </div>
   </div>
@@ -301,7 +300,7 @@ export default function InsightsClient({
         )}
 
         {/* 4. NEWSLETTER BANNER */}
-       <section className="mx-auto mt-24 max-w-7xl px-6 md:px-8">
+       <section className="mx-auto mt-14 max-w-7xl px-6 md:px-8">
           <div className="flex flex-col items-center justify-between gap-8 rounded-3xl border border-white/10 bg-gradient-to-r from-[#111827] to-[#0A0A0A] p-8 shadow-2xl md:flex-row md:p-12">
             <div className="flex items-center gap-6">
               <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-[#6495ED]/10">
