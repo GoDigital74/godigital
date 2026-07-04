@@ -56,8 +56,7 @@ export function FinalCTA() {
   };
 
   return (
-    <section className="relative flex min-h-[80vh] items-center justify-center overflow-hidden bg-[#0A0A0A] py-24 md:py-32">
-      {/* Subtle background glow */}
+<section className="relative flex items-center justify-center overflow-hidden bg-[#0A0A0A] py-6 md:min-h-[70vh] md:py-20 lg:min-h-[90vh] lg:py-24">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(100,149,237,0.08)_0%,#0A0A0A_70%)]" />
 
       {/* OUTER WRAPPER */}
@@ -78,13 +77,13 @@ export function FinalCTA() {
           {/* Interactive Glass Reflection Overlay */}
           <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-br from-white/20 via-transparent to-black/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-          <div className="relative z-20 px-6 py-16 text-center text-white md:px-20 md:py-24">
+          <div className="relative z-20 px-14 py-8 text-center text-white md:px-20 md:py-24">
             <div className="mx-auto mb-6 flex w-fit items-center gap-2 rounded-full border border-white/30 bg-white/20 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-white backdrop-blur-sm md:mb-8 md:px-5 md:text-xs">
-              <Sparkles className="h-3 w-3 md:h-4 md:w-4" />
+              <Sparkles className="h-3 w-3 md:h-5 md:w-5" />
               Let&apos;s Talk
             </div>
             
-            <h2 className="text-4xl font-bold tracking-tight text-white md:text-6xl lg:text-7xl">
+            <h2 className="text-3xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
               Ready to Build<br />Something Bigger?
             </h2>
             

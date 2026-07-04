@@ -170,7 +170,7 @@ export function Insights({ posts = [] }: { posts?: any[] }) {
   };
 
   return (
-    <section className="relative bg-[#0A0A0A] px-6 py-24 md:py-32 overflow-hidden">
+    <section className="relative bg-[#0A0A0A] px-6 py-14 md:py-32 overflow-hidden">
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

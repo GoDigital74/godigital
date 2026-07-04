@@ -31,7 +31,7 @@ export function AllLogos({ sanityLogos = [] }: { sanityLogos?: SanityPartner[] }
   const bottomRow = combinedLogos.slice(half);
 
   return (
-    <section className="border-y border-gray-100 bg-white py-20 md:py-32 overflow-hidden">
+    <section className="border-y border-gray-100 bg-white py-10 md:py-32 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

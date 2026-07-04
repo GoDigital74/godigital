@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 
 export function GlobalPresence() {
   return (
-    <section className="bg-white py-12 md:py-2">
-      <div className="w-full px-3 md:px-1">
+    <section className="bg-white py-2 md:py-2">
+      <div className="w-full px-0.5 md:px-1">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

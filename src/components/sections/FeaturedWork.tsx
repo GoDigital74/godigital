@@ -219,12 +219,12 @@ export function FeaturedWork({ projects = [] }: { projects?: Project[] }) {
             transition={{ duration: 0.7 }}
             className="flex flex-col items-start lg:w-[28%] xl:w-[25%] shrink-0"
           >
-            <h2 className="text-4xl font-bold leading-tight tracking-tight text-[#0A0A0A] lg:text-5xl xl:text-[3.5rem] xl:leading-[1.1]">
+            <h2 className="text-xl font-bold leading-tight tracking-tight text-[#0A0A0A] lg:text-5xl xl:text-[3.5rem] xl:leading-[1.1]">
               Work That Drives <br />
               <span className="text-[#6495ED]">Business<br/>Growth.</span>
             </h2>
 
-            <p className="mt-6 text-sm leading-relaxed text-gray-600 xl:text-base pr-4">
+            <p className="mt-4 text-sm leading-relaxed text-gray-600 xl:text-base pr-4">
               We partner with ambitious brands to solve growth challenges through
               strategy, performance marketing, creative execution, and commerce
               systems.

@@ -88,8 +88,8 @@ export function Footer() {
     >
         <div ref={footerInnerRef}>
           {/* ── Large Brand Name ── */}
-          <div className="footer-animate flex items-end justify-center px-6 pb-6 pt-20 md:pt-28 lg:pt-32">
-            <h2 className="text-[16vw] font-black leading-[0.85] tracking-tighter text-[#0A0A0A] drop-shadow-md md:text-[11vw]">
+          <div className="footer-animate flex items-end justify-center px-6 pb-6 pt-2 md:pt-26 lg:pt-20">
+            <h2 className="text-[13vw] font-black leading-[0.85] tracking-tighter text-[#0A0A0A] drop-shadow-md md:text-[11vw]">
               Go<span className="text-[#6495ED]"> Digital</span>
             </h2>
           </div>
@@ -99,7 +99,7 @@ export function Footer() {
 
           {/* ── Footer Meta Row ── */}
           <footer className="bg-white">
-            <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-10 px-6 py-14 md:flex-row md:px-12 md:py-16">
+            <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-10 px-6 py-4 md:flex-row md:px-12 md:py-14 lg:px-20 lg:py-24">
               
               {/* Socials */}
               <div className="footer-animate flex gap-4">
@@ -127,7 +127,7 @@ export function Footer() {
               </div>
 
               {/* Nav Links */}
-              <nav className="footer-animate flex flex-wrap justify-center gap-8">
+              <nav className="footer-animate flex flex-wrap justify-center gap-8 md:gap-10 lg:gap-12 text-center md:justify-end">
                 {footerLinks.map((link) => (
                   <Link
                     key={link.href}
