@@ -115,10 +115,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
         </header>
 
-        {/* Main Hero Image */}
+      {/* Main Hero Image */}
         {post.imageUrl && (
           <div className="mx-auto max-w-5xl px-6 mb-16">
-            <div className="relative w-full aspect-[2/1] md:aspect-[2.5/1] rounded-3xl overflow-hidden shadow-xl border border-gray-100 bg-gray-100">
+            {/* Swapped custom aspect ratio for a standard 16/9, which perfectly fits your YouTube-style thumbnails without cropping */}
+            <div className="relative w-full aspect-[16/9] lg:aspect-[1.9/1] rounded-3xl overflow-hidden shadow-xl border border-gray-100 bg-gray-100">
               <Image 
                 src={post.imageUrl} 
                 alt={post.title} 
