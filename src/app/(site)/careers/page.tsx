@@ -33,7 +33,7 @@ export default async function CareersPage() {
         {/* ========================================= */}
         {/* HERO SECTION (DARK BANNER WITH PARTICLES) */}
         {/* ========================================= */}
-        <section className="relative flex min-h-[90vh] flex-col items-center justify-center overflow-hidden bg-[#0A0A0A] px-6 py-32 text-center md:py-40">
+        <section className="relative flex min-h-[50vh] md:min-h-screen flex-col items-center justify-center overflow-hidden bg-[#0A0A0A] px-6 py-32 text-center md:py-40">
           {/* React Bits Particles Background */}
           <div className="absolute inset-0 z-0">
             <Particles
@@ -135,19 +135,18 @@ export default async function CareersPage() {
 
           {/* Main Content */}
           <div className="relative z-20 flex max-w-4xl flex-col items-center pt-10 pointer-events-auto">
-            <span className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-[#6495ED]">
+            <span className="mb-6 text-md font-bold uppercase tracking-[0.2em] text-[#6495ED]">
               Careers at Go Digital
             </span>
 
-            <h1 className="mb-8 text-4xl font-bold tracking-tight text-white md:text-6xl lg:text-[4rem] leading-[1.1]">
+            <h1 className="mb-8 text-3xl font-bold tracking-tight text-white md:text-6xl lg:text-[4rem] leading-[1.1]">
               Build your career.
               <br />
               <span className="text-[#6495ED]">Build what matters.</span>
             </h1>
 
-            <p className="mb-12 max-w-2xl text-lg font-medium text-gray-300 md:text-xl leading-relaxed">
-              We're a young, fast-moving team working on real brands, real
-              campaigns and real growth.
+            <p className="mb-8 max-w-2xl text-md font-semibold text-gray-300 md:text-lg leading-relaxed">
+              We're a young, fast-moving team working on real brands and real growth.
             </p>
           </div>
         </section>
@@ -158,9 +157,9 @@ export default async function CareersPage() {
         {/* ========================================= */}
         <section
           id="open-positions"
-          className="px-6 py-16 md:py-20 scroll-mt-24 bg-[#F4F4F0] rounded-[3rem] mx-4 md:mx-8 mb-8"
+          className="px-6 py-10 md:py-20 scroll-mt-24 bg-[#F4F4F0] rounded-[3rem] mx-4 md:mx-8 mb-8"
         >
-          <div className="mb-16 text-center max-w-2xl mx-auto">
+          <div className="mb-16 text-center max-w-3xl mx-auto">
             <h2 className="mb-6 text-4xl font-bold text-[#0A0A0A] md:text-5xl">
               Open Positions
             </h2>
