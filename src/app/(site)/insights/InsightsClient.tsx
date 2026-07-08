@@ -220,14 +220,16 @@ export default function InsightsClient({
                       href={`/insights/${post.slug}`}
                       className="group relative flex flex-col justify-between h-full w-full rounded-[24px] bg-[#111622] overflow-hidden border border-white/5 transition-all duration-300 hover:border-[#6495ED]/40 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(0,0,0,0.15)]"
                     >
-                      {/* Top Image Area */}
-                      <div className="relative h-56 w-full bg-[#1A2235] overflow-hidden shrink-0">
+                     {/* Top Image Area */}
+                      {/* 1. Replaced h-56 with aspect-[16/9] to give the box a standard widescreen shape */}
+                      <div className="relative aspect-[16/9] w-full bg-[#1A2235] overflow-hidden shrink-0">
                         {post.image && (
                           <Image
                             src={post.image}
                             alt={post.title}
                             fill
-                            className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+                            // 2. Swapped object-cover for object-contain
+                            className="object-contain group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
                           />
                         )}
                       </div>

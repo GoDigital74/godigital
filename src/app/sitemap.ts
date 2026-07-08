@@ -1,32 +1,35 @@
 import { MetadataRoute } from 'next'
-import { client } from '@/sanity/lib/client'; // Import your Sanity Client
+import { client } from '@/sanity/lib/client';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://godigitalagency.in'
 
-  // 1. Fetch dynamic routes from Sanity
-  // Adjust the _type to match whatever you named your blog schema (e.g., "post", "insight")
+  // 1. Fetch dynamic routes AND their actual last updated timestamps
+  // FIXED: Changed "insight" back to "post" to match your actual Sanity schema
   const query = `
     {
-      "projects": *[_type == "project"] { "slug": slug.current },
-      "insights": *[_type == "insight"] { "slug": slug.current } 
+      "projects": *[_type == "project"] { "slug": slug.current, "_updatedAt": _updatedAt },
+      "insights": *[_type == "post"] { "slug": slug.current, "_updatedAt": _updatedAt } 
     }
   `;
   const { projects, insights } = await client.fetch(query);
 
-  const projectRoutes = projects.map((project: any) => ({
+  const projectRoutes = projects.map((project: { slug: string, _updatedAt: string }) => ({
     url: `${baseUrl}/work/${project.slug}`,
-    lastModified: new Date(),
+    // Now using the REAL updated date from Sanity
+    lastModified: new Date(project._updatedAt), 
+    changeFrequency: 'monthly' as const,
     priority: 0.8,
   }));
 
-  const insightRoutes = insights.map((post: any) => ({
+  const insightRoutes = insights.map((post: { slug: string, _updatedAt: string }) => ({
     url: `${baseUrl}/insights/${post.slug}`,
-    lastModified: new Date(),
+    lastModified: new Date(post._updatedAt),
+    changeFrequency: 'weekly' as const,
     priority: 0.7,
   }));
 
-  // 2. Define static routes (Added your new nested solution pages!)
+  // 2. Define static routes
   const staticPaths = [
     '', 
     '/about', 
@@ -42,7 +45,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const staticRoutes = staticPaths.map((route) => ({
     url: `${baseUrl}${route}`,
-    lastModified: new Date(),
+    lastModified: new Date(), 
+    // Homepage gets checked more often than standard static pages
+    changeFrequency: route === '' ? 'weekly' as const : 'monthly' as const,
     priority: route === '' ? 1 : 0.8,
   }));
 
