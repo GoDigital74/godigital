@@ -117,18 +117,20 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
         </header>
 
-      {/* Main Hero Image */}
+{/* Main Hero Image */}
         {post.imageUrl && (
           <div className="mx-auto max-w-5xl px-6 mb-16">
-            {/* Standardized to 16/9 and added a subtle background color for letterboxing */}
-            <div className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden shadow-xl border border-gray-100 bg-[#F8FAFC]">
+            {/* Removed the fixed aspect ratio! The container will now perfectly hug the image. */}
+            <div className="relative w-full rounded-3xl overflow-hidden shadow-xl border border-gray-100 flex justify-center bg-white">
               <Image 
                 src={post.imageUrl} 
                 alt={post.title} 
-                fill 
+                // The Next.js trick for images with unknown/varying aspect ratios:
+                width={0}
+                height={0}
+                sizes="100vw"
                 priority
-                // CHANGED: object-cover is now object-contain
-                className="object-contain"
+                className="w-full h-auto"
               />
             </div>
           </div>
