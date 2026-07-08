@@ -18,13 +18,15 @@ const ptComponents = {
   types: {
     image: ({ value }: any) => {
       if (!value?.asset?._ref) return null;
-      return (
-        <div className="relative w-full h-[400px] md:h-[500px] my-10 rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+     return (
+        // Changed to a responsive aspect ratio instead of fixed heights
+        <div className="relative w-full aspect-[16/9] md:aspect-[2/1] my-10 rounded-2xl overflow-hidden shadow-sm border border-gray-100 bg-gray-50">
           <Image
             src={urlFor(value).url()}
             alt={value.alt || "Blog image"}
             fill
-            className="object-cover"
+            // CHANGED: object-cover is now object-contain
+            className="object-contain p-2"
           />
         </div>
       );
@@ -118,14 +120,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       {/* Main Hero Image */}
         {post.imageUrl && (
           <div className="mx-auto max-w-5xl px-6 mb-16">
-            {/* Swapped custom aspect ratio for a standard 16/9, which perfectly fits your YouTube-style thumbnails without cropping */}
-            <div className="relative w-full aspect-[16/9] lg:aspect-[1.9/1] rounded-3xl overflow-hidden shadow-xl border border-gray-100 bg-gray-100">
+            {/* Standardized to 16/9 and added a subtle background color for letterboxing */}
+            <div className="relative w-full aspect-[16/9] rounded-3xl overflow-hidden shadow-xl border border-gray-100 bg-[#F8FAFC]">
               <Image 
                 src={post.imageUrl} 
                 alt={post.title} 
                 fill 
                 priority
-                className="object-cover"
+                // CHANGED: object-cover is now object-contain
+                className="object-contain"
               />
             </div>
           </div>
