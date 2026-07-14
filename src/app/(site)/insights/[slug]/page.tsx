@@ -6,6 +6,45 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { PortableText } from "@portabletext/react";
 import urlBuilder from "@sanity/image-url";
+import type { Metadata } from "next"; // <-- ADD THIS TO YOUR IMPORTS
+
+export async function generateMetadata({ 
+  params 
+}: { 
+  params: Promise<{ slug: string }> 
+}): Promise<Metadata> {
+  const resolvedParams = await params;
+
+  // Fetch just the SEO data we need for the head tags
+  const query = `
+    *[_type == "post" && slug.current == $slug][0] {
+      title,
+      "excerpt": pt::text(body[0..1]) // Grabs plain text from the first paragraph
+    }
+  `;
+  
+  const post = await client.fetch(query, { slug: resolvedParams.slug });
+
+  if (!post) {
+    return { title: "Post Not Found | GoDigital" };
+  }
+
+  return {
+    title: `${post.title} | GoDigital Insights`,
+    description: post.excerpt || "Read the latest insights and strategies from GoDigital.",
+    alternates: {
+      canonical: `https://godigitalagency.in/insights/${resolvedParams.slug}`,
+    },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt || "Read the latest insights and strategies from GoDigital.",
+      url: `https://godigitalagency.in/insights/${resolvedParams.slug}`,
+      type: "article",
+      // Note: We don't need to specify 'images' here because your opengraph-image.tsx 
+      // file automatically handles it for this route!
+    },
+  };
+}
 
 // Helper to generate image URLs for inline Sanity images
 const builder = urlBuilder(client);

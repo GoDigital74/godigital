@@ -1,9 +1,8 @@
 import { client } from "@/sanity/lib/client";
-// import { Header } from "@/components/layout/Header";
-// import { Footer } from "@/components/layout/Footer";
 import { JobAccordion } from "./JobAccordion";
 import Image from "next/image";
 import Particles from "@/components/Particles";
+import type { Metadata } from "next";
 
 export const revalidate = 60;
 
@@ -22,7 +21,13 @@ async function getJobs() {
   `;
   return client.fetch(query);
 }
-
+export const metadata: Metadata = {
+  title: "Careers | Join GoDigital",
+  description: "Build your career. Build what matters. Join a young, fast-moving team working on real brands and real growth.",
+  alternates: {
+    canonical: "/careers",
+  },
+};
 export default async function CareersPage() {
   const jobs = await getJobs();
 
