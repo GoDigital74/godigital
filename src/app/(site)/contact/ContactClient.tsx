@@ -14,12 +14,11 @@ import {
   Phone,
   Sparkles,
   AlertCircle,
-
 } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function ContactPage() {
+export default function ContactClient() {
   const heroRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const buttonsRef = useRef<HTMLDivElement>(null);
@@ -92,7 +91,6 @@ export default function ContactPage() {
     setIsSubmitting(true);
     setErrorMessage("");
 
-    // Gather data from the form inputs
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData);
 
@@ -105,15 +103,17 @@ export default function ContactPage() {
         body: JSON.stringify(data),
       });
 
+      // Parse the JSON response to read custom backend errors
+      const result = await response.json();
+
       if (!response.ok) {
-        throw new Error("Failed to send message");
+        throw new Error(result.error || "Failed to send message");
       }
 
-      // Show success animation
       setIsSuccess(true);
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
-      setErrorMessage("Something went wrong. Please try again.");
+      setErrorMessage(error.message || "Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -121,20 +121,15 @@ export default function ContactPage() {
 
   return (
     <ReactLenis root options={{ lerp: 0.08, smoothWheel: true }}>
-      {/* <Header /> */}
-      
       <main 
         className="min-h-screen bg-black overflow-hidden font-sans selection:bg-[#79C267] selection:text-white"
         onMouseMove={handleMouseMove}
       >
-        {/* ========================================= */}
         {/* HERO SECTION */}
-        {/* ========================================= */}
         <section 
           ref={heroRef} 
           className="relative h-screen min-h-[600px] w-full flex flex-col items-center justify-start pt-28 md:pt-36 bg-[#112A1B] overflow-hidden"
         >
-          {/* Background Layering & Lighting */}
           <div className="absolute inset-0 bg-gradient-to-b from-[#112A1B] via-[#1B432B] to-[#0A160F] z-0" />
           <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#4EA868]/15 rounded-full blur-[120px] pointer-events-none z-0" />
           <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none z-0" />
@@ -170,14 +165,10 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* ======================== */}
-          {/* MASSIVE SPLINE CENTERPIECE */}
-          {/* ======================== */}
           <div 
             ref={splineRef}
             className="absolute left-1/2 -translate-x-1/2 bottom-[-5vh] w-full max-w-[1000px] h-[70vh] flex justify-center items-end pointer-events-none z-10"
           >
-            {/* Floating Glass Cards */}
             <motion.div style={{ x: floatX1, y: floatY1 }} className="absolute top-[30%] left-[20%] lg:left-[28%] z-20 hidden md:block">
               <FloatingCard icon={<Mail className="w-4 h-4 text-white"/>} label="godigital74@gmail.com" delay={0} />
             </motion.div>
@@ -186,7 +177,6 @@ export default function ContactPage() {
               <FloatingCard icon={<Phone className="w-4 h-4 text-white"/>} label="+91 8076625588" delay={1} />
             </motion.div>
 
-           {/* LinkedIn Card */}
             <motion.div style={{ x: floatX2, y: floatY1 }} className="absolute top-[70%] left-[12%] lg:left-[20%] z-20 hidden md:block">
               <FloatingCard 
                 delay={0.6} 
@@ -202,7 +192,6 @@ export default function ContactPage() {
               />
             </motion.div>
 
-            {/* Instagram Card */}
             <motion.div style={{ x: floatX1, y: floatY2 }} className="absolute top-[75%] right-[15%] lg:right-[22%] z-20 hidden md:block">
               <FloatingCard 
                 delay={0.8} 
@@ -218,7 +207,6 @@ export default function ContactPage() {
               />
             </motion.div>
 
-            {/* The 3D Object */}
             <div className="relative w-full h-full pointer-events-auto">
               <Spline
                 scene="https://prod.spline.design/HhL1lucP5Lk85bd7/scene.splinecode" 
@@ -228,9 +216,7 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* ========================================= */}
         {/* CONTACT FORM SECTION */}
-        {/* ========================================= */}
         <section id="contact-form" className="relative py-24 md:py-32 px-6 bg-[#0A0A0A]">
           <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
             
@@ -277,7 +263,6 @@ export default function ContactPage() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="relative z-10 space-y-6">
-                    {/* Error Message Display */}
                     {errorMessage && (
                       <div className="flex items-center gap-2 text-red-400 bg-red-400/10 border border-red-400/20 p-4 rounded-xl text-sm font-medium">
                         <AlertCircle className="w-4 h-4" />
@@ -321,7 +306,6 @@ export default function ContactPage() {
           </div>
         </section>
       </main>
-      {/* <Footer /> */}
     </ReactLenis>
   );
 }
