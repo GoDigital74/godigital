@@ -299,10 +299,10 @@ export default function WorkClient({ initialCaseStudies }: { initialCaseStudies:
                           <div className="grid grid-cols-2 gap-x-4 gap-y-4 border-t border-white/10 pt-4">
                             {study.metrics.map((metric, idx) => (
                               <div key={idx} className="flex flex-col">
-                                <span className={`text-base md:text-lg font-bold leading-tight break-words ${idx === study.metrics.length - 1 ? 'text-[#6495ED]' : 'text-white'}`}>
+                                <span className={`text-base md:text-lg font-semibold leading-tight break-words ${idx === study.metrics.length - 1 ? 'text-[#6495ED]' : 'text-white'}`}>
                                   {metric.value}
                                 </span>
-                                <span className="mt-1.5 text-[10px] font-medium uppercase tracking-wider text-gray-500 break-words line-clamp-2">
+                                <span className="mt-1 text-[11px] font-medium tracking-wider text-gray-400 break-words line-clamp-2">
                                   {metric.label}
                                 </span>
                               </div>
