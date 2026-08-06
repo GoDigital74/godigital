@@ -289,13 +289,13 @@ export default function WorkClient({ initialCaseStudies }: { initialCaseStudies:
                     </div>
 
                     {/* Content Bottom Half */}
-                    <div className="flex flex-1 flex-col p-4">
+                    <div className="flex flex-1 flex-col p-3">
                       <h3 className="text-xl font-semibold text-white">{study.title}</h3>
                       <p className="mt-1 text-sm text-gray-400">{study.desc}</p>
 
                       {/* Dynamic Metric Stats Grid (Fixed for Text Overflow) */}
                       {study.metrics && study.metrics.length > 0 && (
-                        <div className="mt-auto pt-3">
+                        <div className="mt-auto pt-2">
                           <div className="grid grid-cols-2 gap-x-4 gap-y-4 border-t border-white/10 pt-4">
                             {study.metrics.map((metric, idx) => (
                               <div key={idx} className="flex flex-col">
@@ -313,10 +313,10 @@ export default function WorkClient({ initialCaseStudies }: { initialCaseStudies:
 
                       <Link
                         href={`/work/${study.id}`}
-                        className="mt-5 flex items-center justify-between text-sm font-semibold text-gray-300 transition-colors group-hover:text-white"
+                        className="mt-3 flex items-center justify-between text-sm font-semibold text-gray-300 transition-colors group-hover:text-white"
                       >
                         View Case Study
-                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:text-[#6495ED]" />
+                        <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:text-[#6495ED]" />
                       </Link>
                     </div>
                   </motion.div>
