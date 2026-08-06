@@ -270,7 +270,7 @@ export default function WorkClient({ initialCaseStudies }: { initialCaseStudies:
                     className="group flex flex-col overflow-hidden rounded-3xl border border-white/5 bg-[#111827] shadow-lg transition-colors hover:border-[#6495ED]/40"
                   >
                     {/* Image Top Half */}
-                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-900 border-b border-[#1F2937]">
+                    <div className="relative aspect-3/2 w-full overflow-hidden bg-gray-900 border-b border-[#1F2937]">
                       <div className="absolute left-4 top-4 z-10 rounded-full border border-white/10 bg-black/40 px-3 py-1 text-xs font-semibold text-white backdrop-blur-md">
                         {study.category}
                       </div>
@@ -289,14 +289,14 @@ export default function WorkClient({ initialCaseStudies }: { initialCaseStudies:
                     </div>
 
                     {/* Content Bottom Half */}
-                    <div className="flex flex-1 flex-col p-6">
-                      <h3 className="text-xl font-bold text-white">{study.title}</h3>
-                      <p className="mt-2 text-sm text-gray-400">{study.desc}</p>
+                    <div className="flex flex-1 flex-col p-5">
+                      <h3 className="text-xl font-semibold text-white">{study.title}</h3>
+                      <p className="mt-1.5 text-sm text-gray-400">{study.desc}</p>
 
                       {/* Dynamic Metric Stats Grid (Fixed for Text Overflow) */}
                       {study.metrics && study.metrics.length > 0 && (
-                        <div className="mt-auto pt-8">
-                          <div className="grid grid-cols-2 gap-x-4 gap-y-6 border-t border-white/10 pt-6">
+                        <div className="mt-auto pt-4">
+                          <div className="grid grid-cols-2 gap-x-4 gap-y-4 border-t border-white/10 pt-4">
                             {study.metrics.map((metric, idx) => (
                               <div key={idx} className="flex flex-col">
                                 <span className={`text-base md:text-lg font-bold leading-tight break-words ${idx === study.metrics.length - 1 ? 'text-[#6495ED]' : 'text-white'}`}>
@@ -311,9 +311,9 @@ export default function WorkClient({ initialCaseStudies }: { initialCaseStudies:
                         </div>
                       )}
 
-                      <Link 
-                        href={`/work/${study.id}`} 
-                        className="mt-8 flex items-center justify-between text-sm font-semibold text-gray-300 transition-colors group-hover:text-white"
+                      <Link
+                        href={`/work/${study.id}`}
+                        className="mt-5 flex items-center justify-between text-sm font-semibold text-gray-300 transition-colors group-hover:text-white"
                       >
                         View Case Study
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:text-[#6495ED]" />
