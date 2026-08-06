@@ -3,10 +3,22 @@ import InsightsClient from "./InsightsClient";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Insights & Strategies | The GoDigital Journal",
+  title: { absolute: "Insights & Strategies | The GoDigital Journal" },
   description: "Ideas, strategies, and lessons that drive growth. Real insights from the trenches of performance, branding, and commerce.",
   alternates: {
     canonical: "/insights",
+  },
+  openGraph: {
+    title: "Insights & Strategies | The GoDigital Journal",
+    description: "Ideas, strategies, and lessons that drive growth. Real insights from the trenches of performance, branding, and commerce.",
+    url: "https://godigitalagency.in/insights",
+    images: ["/og-image.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Insights & Strategies | The GoDigital Journal",
+    description: "Ideas, strategies, and lessons that drive growth. Real insights from the trenches of performance, branding, and commerce.",
+    images: ["/og-image.png"],
   },
 };
 

@@ -1,122 +1,16 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono, Instrument_Serif, Sora } from "next/font/google";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { GoogleAnalytics } from "@next/third-parties/google"; // 1. Added GA Import
-import "../globals.css"; 
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-});
-const sora = Sora({
-  variable: "--font-sora",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
-
-export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://godigitalagency.in",
-  ),
-  title: {
-    default: "GoDigital | Performance & Brand Growth Agency",
-    template: "%s | GoDigital",
-  },
-  description:
-   "Digital ecosystems engineered for scale. GoDigital combines paid media, Shopify development, and brand strategy to drive real, measurable impact.",
-  keywords: [
-    "digital marketing",
-    "agency",
-    "SEO",
-    "Paid Media",
-    "Go Digital",
-    "go-digitalagency",
-    "Go Digital: Home",
-    "web development",
-    "Brand Positioning",
-    "Go Digital Agency",   
-    "Shopify Development",
-    "Social Media Marketing",
-    "Digital Marketing Agency",
-    "Digital Marketing Services",    
-    "Email & WhatsApp Marketing",
-  ],
-
-  authors: [{ name: "GoDigital Agency" }],
-  creator: "GoDigital",
-  alternates: {
-    canonical: "https://godigitalagency.in", 
-  },
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "/",
-    title: "GoDigital | Performance & Brand Growth Agency",
-    description:
-      "Digital ecosystems engineered for scale. GoDigital combines paid media, Shopify development, and brand strategy to drive real, measurable impact.",
-    siteName: "GoDigital",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "GoDigital Agency",
-      },
-    ], 
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "GoDigital | Performance & Brand Growth Agency",
-    description:
-      "Digital ecosystems engineered for scale. GoDigital combines paid media, Shopify development, and brand strategy to drive real, measurable impact.",
-    creator: "@godigital",
-    images: ["/og-image.jpg"], 
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION, 
-  },
-  icons: {
-    icon: [
-      { url: "/icon.png", sizes: "192x192", type: "image/png" },
-    ],
-    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
-  },
-  manifest: "/manifest.json",
-};
-
-export default function RootLayout({
+export default function SiteLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  
-  // 2. Updated Structured Data with accurate location details
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     name: "GoDigital Agency",
     description: "Digital Marketing, Strategy, and Growth Agency.",
-    image: "https://godigitalagency.in/og-image.jpg",
+    image: "https://godigitalagency.in/og-image.png",
     url: "https://godigitalagency.in",
     address: {
       "@type": "PostalAddress",
@@ -128,28 +22,16 @@ export default function RootLayout({
   };
 
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} ${sora.variable} h-full antialiased`}
-    >
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </head>
-      <body className="min-h-full bg-background text-foreground overflow-x-hidden selection:bg-[#6495ED] selection:text-white">
-          
-          <Header />
-        <SmoothScroll>
-          {children}
-          <Footer />
-          <Analytics />
-          <SpeedInsights />
-        </SmoothScroll>
-        <GoogleAnalytics gaId="G-2TE1DNHCG7" />
-      </body>
-    </html>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <Header />
+      <SmoothScroll>
+        {children}
+        <Footer />
+      </SmoothScroll>
+    </>
   );
 }
-

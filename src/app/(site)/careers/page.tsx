@@ -22,10 +22,22 @@ async function getJobs() {
   return client.fetch(query);
 }
 export const metadata: Metadata = {
-  title: "Careers | Join GoDigital",
+  title: "Careers",
   description: "Build your career. Build what matters. Join a young, fast-moving team working on real brands and real growth.",
   alternates: {
     canonical: "/careers",
+  },
+  openGraph: {
+    title: "Careers | Join GoDigital",
+    description: "Build your career. Build what matters. Join a young, fast-moving team working on real brands and real growth.",
+    url: "https://godigitalagency.in/careers",
+    images: ["/og-image.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Careers | Join GoDigital",
+    description: "Build your career. Build what matters. Join a young, fast-moving team working on real brands and real growth.",
+    images: ["/og-image.png"],
   },
 };
 export default async function CareersPage() {

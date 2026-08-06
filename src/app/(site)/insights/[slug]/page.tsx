@@ -26,22 +26,29 @@ export async function generateMetadata({
   const post = await client.fetch(query, { slug: resolvedParams.slug });
 
   if (!post) {
-    return { title: "Post Not Found | GoDigital" };
+    return { title: { absolute: "Post Not Found | GoDigital" } };
   }
 
+  const description = post.excerpt || "Read the latest insights and strategies from GoDigital.";
+
   return {
-    title: `${post.title} | GoDigital Insights`,
-    description: post.excerpt || "Read the latest insights and strategies from GoDigital.",
+    title: { absolute: `${post.title} | GoDigital Insights` },
+    description,
     alternates: {
       canonical: `https://godigitalagency.in/insights/${resolvedParams.slug}`,
     },
     openGraph: {
       title: post.title,
-      description: post.excerpt || "Read the latest insights and strategies from GoDigital.",
+      description,
       url: `https://godigitalagency.in/insights/${resolvedParams.slug}`,
       type: "article",
-      // Note: We don't need to specify 'images' here because your opengraph-image.tsx 
+      // Note: We don't need to specify 'images' here because your opengraph-image.tsx
       // file automatically handles it for this route!
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description,
     },
   };
 }
