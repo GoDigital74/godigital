@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ContactClient from "./ContactClient";
+import { SplineHero } from "./SplineHero";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -22,5 +23,5 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  return <ContactClient />;
+  return <ContactClient splineSlot={<SplineHero />} />;
 }

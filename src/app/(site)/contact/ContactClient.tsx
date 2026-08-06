@@ -5,8 +5,7 @@ import { ReactLenis } from "@studio-freight/react-lenis";
 import { motion, useTransform, useSpring, useMotionValue } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Spline from '@splinetool/react-spline';
-import { 
+import {
   Send, 
   Calendar, 
   Mail, 
@@ -18,7 +17,7 @@ import {
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function ContactClient() {
+export default function ContactClient({ splineSlot }: { splineSlot: React.ReactNode }) {
   const heroRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const buttonsRef = useRef<HTMLDivElement>(null);
@@ -208,10 +207,7 @@ export default function ContactClient() {
             </motion.div>
 
             <div className="relative w-full h-full pointer-events-auto">
-              <Spline
-                scene="https://prod.spline.design/HhL1lucP5Lk85bd7/scene.splinecode" 
-                className="w-full h-full object-contain"
-              />
+              {splineSlot}
             </div>
           </div>
         </section>
