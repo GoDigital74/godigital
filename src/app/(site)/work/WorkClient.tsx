@@ -289,13 +289,13 @@ export default function WorkClient({ initialCaseStudies }: { initialCaseStudies:
                     </div>
 
                     {/* Content Bottom Half */}
-                    <div className="flex flex-1 flex-col p-5">
+                    <div className="flex flex-1 flex-col p-4">
                       <h3 className="text-xl font-semibold text-white">{study.title}</h3>
-                      <p className="mt-1.5 text-sm text-gray-400">{study.desc}</p>
+                      <p className="mt-1 text-sm text-gray-400">{study.desc}</p>
 
                       {/* Dynamic Metric Stats Grid (Fixed for Text Overflow) */}
                       {study.metrics && study.metrics.length > 0 && (
-                        <div className="mt-auto pt-4">
+                        <div className="mt-auto pt-3">
                           <div className="grid grid-cols-2 gap-x-4 gap-y-4 border-t border-white/10 pt-4">
                             {study.metrics.map((metric, idx) => (
                               <div key={idx} className="flex flex-col">
