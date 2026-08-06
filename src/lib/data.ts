@@ -59,14 +59,14 @@ export const solutions = [
 ] as const;
 
 export const industries = [
-  { name: "Home Decor", icon: "🏠" },
-  { name: "Hospitality", icon: "🏨" },
-  { name: "Healthcare", icon: "⚕️" },
-  { name: "Fashion", icon: "👗" },
-  { name: "Jewellery", icon: "💎" },
-  { name: "Food & Beverage", icon: "🍽️" },
-  { name: "Spiritual Stays", icon: "🕉️" },
-  { name: "Automobile", icon: "🚗" },
+  { name: "Home Decor", icon: "Sofa" },
+  { name: "Hospitality", icon: "Hotel" },
+  { name: "Healthcare", icon: "Stethoscope" },
+  { name: "Fashion", icon: "Shirt" },
+  { name: "Jewellery", icon: "Gem" },
+  { name: "Food & Beverage", icon: "UtensilsCrossed" },
+  { name: "Spiritual Stays", icon: "Landmark" },
+  { name: "Automobile", icon: "Car" },
 ] as const;
 
 export const insights = [

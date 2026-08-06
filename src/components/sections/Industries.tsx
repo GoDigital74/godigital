@@ -1,7 +1,29 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
+import {
+  Sofa,
+  Hotel,
+  Stethoscope,
+  Shirt,
+  Gem,
+  UtensilsCrossed,
+  Landmark,
+  Car,
+  type LucideIcon,
+} from "lucide-react";
 import { industries } from "@/lib/data";
+
+const iconMap: Record<string, LucideIcon> = {
+  Sofa,
+  Hotel,
+  Stethoscope,
+  Shirt,
+  Gem,
+  UtensilsCrossed,
+  Landmark,
+  Car,
+};
 
 // Match the precise reveal stagger choreography from the Work section
 const containerVariants: Variants = {
@@ -30,6 +52,36 @@ const cardVariants: Variants = {
     },
   },
 };
+
+function IndustryCard({
+  name,
+  icon,
+  className = "",
+}: {
+  name: string;
+  icon: string;
+  className?: string;
+}) {
+  const Icon = iconMap[icon];
+
+  return (
+    <motion.div
+      variants={cardVariants}
+      className={`industry-card group relative overflow-hidden rounded-2xl border border-white/5 bg-[#111827] p-6 shadow-sm transition-all duration-500 hover:border-[#6495ED]/40 hover:shadow-lg hover:shadow-[#6495ED]/10 ${className}`}
+    >
+      {/* Simple radial glow fading in on hover */}
+      <div className="industry-card-glow absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+      <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-xl bg-[#6495ED]/10 text-[#6495ED] transition-all duration-500 group-hover:scale-110 group-hover:bg-[#6495ED]/15 group-hover:text-white">
+        {Icon && <Icon className="h-6 w-6" strokeWidth={1.75} />}
+      </div>
+
+      <h3 className="relative z-10 mt-4 text-base font-semibold text-gray-200 transition-colors duration-300 group-hover:text-[#6495ED]">
+        {name}
+      </h3>
+    </motion.div>
+  );
+}
 
 export function Industries() {
   return (
@@ -82,27 +134,16 @@ export function Industries() {
           className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 px-6 sm:px-6 lg:px-8"
         >
           {industries.map((industry, i) => (
-            <motion.div
-              variants={cardVariants}
+            <IndustryCard
               key={industry.name}
-              // Card set to #111827 with a very subtle blue hover border and faint glow
-              className={`industry-card group relative overflow-hidden rounded-2xl border border-white/5 bg-[#111827] p-6 shadow-sm transition-all duration-500 hover:border-[#6495ED]/40 hover:shadow-lg hover:shadow-[#6495ED]/5 ${
+              name={industry.name}
+              icon={industry.icon}
+              className={
                 i === industries.length - 1 && industries.length % 2 !== 0
                   ? "col-span-2 sm:col-span-1 lg:col-span-1"
                   : ""
-              }`}
-            >
-              {/* Very subtle inner gradient overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#6495ED]/0 to-[#6495ED]/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              
-              <span className="relative z-10 text-3xl transition-transform duration-500 group-hover:scale-110 group-hover:drop-shadow-lg inline-block">
-                {industry.icon}
-              </span>
-              
-              <h3 className="relative z-10 mt-4 text-base font-semibold text-gray-200 transition-colors duration-300 group-hover:text-[#6495ED]">
-                {industry.name}
-              </h3>
-            </motion.div>
+              }
+            />
           ))}
         </motion.div>
       </div>

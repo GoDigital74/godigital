@@ -196,6 +196,16 @@ img, video, canvas, svg {
   animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* Industries card: simple radial glow fading in on hover */
+.industry-card-glow {
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(100, 149, 237, 0.25),
+    transparent 65%
+  );
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation: none !important;
