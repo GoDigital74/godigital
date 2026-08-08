@@ -6,16 +6,22 @@ import { motion, useTransform, useSpring, useMotionValue } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
-  Send, 
-  Calendar, 
-  Mail, 
-  MapPin, 
+  Send,
+  Calendar,
+  Mail,
+  MapPin,
   Phone,
   Sparkles,
   AlertCircle,
 } from "lucide-react";
+import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 
 gsap.registerPlugin(ScrollTrigger);
+
+// Inlined at build time. When it's absent the widget is skipped entirely and
+// the form still submits — the route does the same with TURNSTILE_SECRET_KEY,
+// so a missing env var degrades instead of bricking the contact page.
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
 export default function ContactClient({ splineSlot }: { splineSlot: React.ReactNode }) {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -85,8 +91,28 @@ export default function ContactClient({ splineSlot }: { splineSlot: React.ReactN
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const turnstileRef = useRef<TurnstileInstance>(null);
+
+  // When the form mounted — the route rejects anything submitted within 3s of
+  // this. Stamped in an effect rather than during render because Date.now() is
+  // impure and would drift on re-render.
+  const startedAt = useRef(0);
+  useEffect(() => {
+    startedAt.current = Date.now();
+  }, []);
+
+  // Nothing to wait for when Turnstile isn't configured.
+  const captchaReady = !TURNSTILE_SITE_KEY || Boolean(turnstileToken);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!captchaReady) {
+      setErrorMessage("Please wait a moment for the security check to finish.");
+      return;
+    }
+
     setIsSubmitting(true);
     setErrorMessage("");
 
@@ -99,7 +125,11 @@ export default function ContactClient({ splineSlot }: { splineSlot: React.ReactN
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          ...data,
+          startedAt: startedAt.current,
+          turnstileToken,
+        }),
       });
 
       // Parse the JSON response to read custom backend errors
@@ -110,9 +140,16 @@ export default function ContactClient({ splineSlot }: { splineSlot: React.ReactN
       }
 
       setIsSuccess(true);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error(error);
-      setErrorMessage(error.message || "Something went wrong. Please try again.");
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong. Please try again."
+      );
+      // A Turnstile token is single-use — reset so a retry can succeed.
+      turnstileRef.current?.reset();
+      setTurnstileToken("");
     } finally {
       setIsSubmitting(false);
     }
@@ -266,6 +303,27 @@ export default function ContactClient({ splineSlot }: { splineSlot: React.ReactN
                       </div>
                     )}
 
+                    {/*
+                      Honeypot. Positioned off-screen rather than hidden with
+                      `display:none` — better bots skip fields they can tell are
+                      invisible. Named `website` because Chrome autofills a
+                      `company` field from the saved address profile, which
+                      would silently drop real leads.
+                    */}
+                    <div
+                      aria-hidden="true"
+                      className="absolute -left-[9999px] top-0 w-px h-px overflow-hidden"
+                    >
+                      <label htmlFor="website">Website</label>
+                      <input
+                        id="website"
+                        name="website"
+                        type="text"
+                        tabIndex={-1}
+                        autoComplete="off"
+                      />
+                    </div>
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2 group">
                         <label htmlFor="firstName" className="text-sm font-medium text-gray-400 group-focus-within:text-[#79C267] transition-colors">First Name</label>
@@ -287,9 +345,25 @@ export default function ContactClient({ splineSlot }: { splineSlot: React.ReactN
                       <textarea id="message" name="message" required rows={4} className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#79C267] focus:bg-white/10 transition-all resize-none" placeholder="Tell us about your project..."></textarea>
                     </div>
 
-                    <button 
+                    {TURNSTILE_SITE_KEY && (
+                      <Turnstile
+                        ref={turnstileRef}
+                        siteKey={TURNSTILE_SITE_KEY}
+                        onSuccess={setTurnstileToken}
+                        onExpire={() => setTurnstileToken("")}
+                        onError={() =>
+                          setErrorMessage(
+                            "Security check failed. Please refresh the page."
+                          )
+                        }
+                        options={{ theme: "dark", size: "flexible" }}
+                        className="w-full"
+                      />
+                    )}
+
+                    <button
                       type="submit"
-                      disabled={isSubmitting}
+                      disabled={isSubmitting || !captchaReady}
                       className="w-full relative overflow-hidden group bg-gradient-to-r from-[#2F7D4E] to-[#79C267] text-white rounded-xl py-4 font-bold text-base transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? "Sending..." : "Send Message"}
